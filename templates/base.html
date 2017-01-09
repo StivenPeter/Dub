@@ -1,30 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset = "utf-8">
-    <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
-    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
-    <!-- Bootstrap -->
-    
-    {% block head %}
-    <title>Less Than Three</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-     <link href="static/bootstrap/css/style.css" rel="stylesheet">    
-    {% endblock %} 
-  </head>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation 101</title>
+    <link rel="stylesheet" href="../static/foundation_custom/css/foundation.css">
+    <link rel="stylesheet" href="../static/foundation_custom/css/app.css">
 
+    <style>
+    .top-bar{
+        background-color:#4BA3C3;
+    }
+    .top-bar-left{
+        background-color:#4BA3C3;
+    }
+    .data-dropdown-menu{
+        background-color:#4BA3C3;
+    }
+    .menu-text{
+        background-color:#4BA3C3;
+    }
+    .abc{
+        background-color:#4BA3C3;
+    }
+    .abcd{
+        background-color:#4BA3C3;
+    }
+    a {
+        color:#CCE6F4;
+    }
+
+    </style>
+</head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Less Than Three</a>          
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>       
-        </div>
-    </nav>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">Less Than Three</li>
+                <li class = "abc">
+                    <a href="#">Home</a>
+                </li>
+                <li class="abcd">
+                    <a href="#">About</a>
+                </li>
+            </ul>
+  </div>
+  <div class="top-bar-right">
+        {% block head %}
+        {% endblock %}
+  </div>
+</div>
 
     {% block body %}
     {% endblock %}
