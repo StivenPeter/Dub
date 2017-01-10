@@ -1,3 +1,6 @@
 stivenP -- 2017-01-09 18:00
       Added basic paths to app.py 
       Added functions necessary to upload pics in app.py
+ogal7 -- 2017-01-09 14:50
+      Linked foundation with template, extended basic template to all other templates
+     
