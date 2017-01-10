@@ -20,12 +20,12 @@ def upload_file(f):
     file = f['upload']
     filename = "default.jpg"
     if file.filename == '':
-        return render_template("error.html")
+        return filename
     try:
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     except IOError:
-        return render_template("error.html")
+        return filename
     return filename
 
 
