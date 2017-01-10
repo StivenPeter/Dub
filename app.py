@@ -42,6 +42,10 @@ def main():
 def about():
     return render_template("about.html") 
 
+@app.route("/register/")
+def register():
+    return render_template("form1.html")
+
 
 
 if(__name__ == "__main__"):
