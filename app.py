@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, session, redirect, url_for
+import urllib2, os
 from werkzeug.utils import secure_filename
 
 #from flask_bootstrap import Bootstrap
