@@ -1,1 +1,3 @@
-
+stivenP -- 2017-01-09 18:00
+      Added basic paths to app.py 
+      Added functions necessary to upload pics in app.py
