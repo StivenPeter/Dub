@@ -5,7 +5,55 @@
 {{ super() }}
 {% endblock %}
 
+{% block style %}
+	.card {
+		margin:auto;
+		margin-top:170px;
+		radius:10px 100px 10px 10px;
+	}
+	.card-divider {
+		background:#4BA3C3;
+		border:#4BA3C3;
+	}
+	.card-section{
+		border:#4BA3C3;
+	}
+	.button{
+		margin: 20px 10px 10px 10px;
+		background:#BA324F;
+	}
+{% endblock %}
+
+
 
 {% block body %}
-<h1> hi </h1>
+
+<div class="card" style="width: 400px; height:270px">
+  <div class="card-divider"> 
+  	<center> <b>
+    Log In or Register!
+	</center> </b>
+  </div>
+  <div class="card-section">
+    <form>
+  		<div class="row">
+    		<div class="medium-6 columns">
+      			<label>Username
+        			<input type="text" placeholder="oliviathepig">
+      			</label>
+    		</div>
+    		<div class="medium-6 columns">
+      			<label>Password
+        			<input type="text" placeholder="isadub">
+      			</label>
+    		</div>
+    		<br> <br>
+    		<center>
+    		<a class="button" href="#">Register!</a>
+    		</center>
+  		</div>
+	</form>
+  </div>
+</div>
+
 {% endblock %}
