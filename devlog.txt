@@ -5,3 +5,6 @@ ogal7 -- 2017-01-09 14:50
       Linked foundation with template, extended basic template to all other templates
 ogal7 -- 2017-01-09 23:30
       Finished login page visuals      
+
+P0rkins -- 2017-01-10 14:00
+	Created data.db and relevant tables
