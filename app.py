@@ -38,6 +38,11 @@ def main():
     return render_template('login.html')
 
 
+@app.route("/form1/")
+def form1():
+    return render_template('form2.html')
+
+
 @app.route("/about/")
 def about():
     return render_template("about.html") 

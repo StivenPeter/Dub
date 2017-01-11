@@ -26,23 +26,50 @@
 
 
 {% block body %}
-<div class="card" style="width: 80%;height: 70%;">
+<div class="card" style="width: 70%;height: 70%;">
 	<div class="card-divider"> 
   		<center> <b>
     		Basic Information
 		</center> </b>
   	</div>
   	<div class="card-section">
+  		<!-- name, lname, uname,pw, -->
   		<form action="/form1/">
   			<div class="row">
-
+  				<div class="large-6 columns">
+  					<label>
+  						First Name
+  						<input type="text" placeholder="Ryan">
+					</label>
+				</div>
+				<div class="large-6 columns">
+					<label>
+  						Last Name
+  						<input type="text" placeholder="Gosling">
+					</label>
+  				</div>
   			</div>
   			<div class="row">
+  				<label>
+  					Username
+  					<input type="text" placeholder="RyGos123">
+				</label>
   			</div>
   			<div class="row">
+  				<label>
+  					Password
+  					<input type="password" placeholder="Ryan">
+				</label>
   			</div>
   			<div class="row">
+  				<label>
+  					Confirm Password
+  					<input type="password" placeholder="Ryan">
+				</label>
   			</div>
+  			<center>
+    		<button type="Submit" class="button"> Next </button>
+    		</center> 			
   		</form>
   	</div>
 </div>

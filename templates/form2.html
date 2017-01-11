@@ -5,12 +5,11 @@
 {% endblock %}
 
 
-
 {% block style %}
 	.card {
 		margin:auto;
-		margin-top:170px;
-		radius:10px 100px 10px 10px;
+		margin-top:4%;
+		radius:10px 10px 10px 10px;
 	}
 	.card-divider {
 		background:#4BA3C3;
@@ -27,7 +26,94 @@
 
 
 {% block body %}
-
+<div class="card" style="width: 85%;height: 70%;">
+	<div class="card-divider"> 
+  		<center> <b>
+    		Create Your Profile!
+		</center> </b>
+  	</div>
+  	<div class="card-section">
+  		<!-- Age, Age looking for, Gender, gender looking for -->
+  		<form action="/form2/">
+  			<div class="row">
+  				<div class="large-6 columns">
+  					<label>How Old Are You?
+  						<select name="age">
+    						<option value="16">16</option>
+    						<option value="17">17</option>
+    						<option value="18">18</option>
+    						<option value="19">19</option>
+	    					<option value="20">20</option>
+	    					<option value="21">21</option>
+	    					<option value="22">22</option>
+	    					<option value="23">23</option>
+	    					<option value="24">24</option>
+	    					<option value="25">25</option>
+	    					<option value="26">26</option>
+	    					<option value="27">27</option>
+	    					<option value="28">28</option>
+	    					<option value="29">29</option>
+	    					<option value="30">30</option>
+	    					<option value="31">31</option>
+	    					<option value="32">32</option>
+	    					<option value="33">33</option>
+	    					<option value="34">34</option>
+	    					<option value="35">35</option>
+	    					<option value="36">36</option>
+	    					<option value="37">37</option>
+	    					<option value="38">38</option>
+	    					<option value="39">39</option>
+	    					<option value="40">40</option>
+	    					<option value="41">41</option>
+	    					<option value="42">42</option>
+	    					<option value="43">43</option>
+	    					<option value="44">44</option>
+	    					<option value="45">45</option>
+	    					<option value="46">46</option>
+	    					<option value="47">47</option>
+	    					<option value="48">48</option>
+	    					<option value="49">49</option>
+	    					<option value="50">50</option>
+  						</select>
+					</label>
+				</div>
+				<div class="large-6 columns">
+  					<label>What is the <i> Maximum </i> age difference you would prefer between you and your match?
+  						<select name="agediff">
+  							<option value="0">No Preference</option>
+    						<option value="1">1 year</option>
+    						<option value="2">2 years</option>
+    						<option value="3">3 years</option>
+    						<option value="4">4 years</option>
+	    					<option value="5">5 years</option>
+	    					<option value="6">6 years</option>
+	    					<option value="7">7 years</option>
+	    					<option value="8">8 years</option>
+	    					<option value="9">9 years</option>
+	    					<option value="10">10 years</option>
+	    					<option value="11">11 years</option>
+	    					<option value="12">12 years</option>
+	    					<option value="13">13 years</option>
+	    					<option value="14">14 years</option>
+  						</select>
+					</label>
+				</div>
+  			</div>
+  			<div class="row">
+  				
+  			</div>
+  			<div class="row">
+  				
+  			</div>
+  			<div class="row">
+  				
+  			</div>
+  			<center>
+    		<button type="Submit" class="button"> Next </button>
+    		</center> 			
+  		</form>
+  	</div>
+</div>
 
 
 {% endblock %}
