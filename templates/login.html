@@ -24,35 +24,37 @@
 	}
 {% endblock %}
 
-
-
 {% block body %}
 
 <div class="card" style="width: 60%; height: 70%;">
   <div class="card-divider"> 
   	<center> <b>
-    Log In or Register!
-	 </center> </b>
+      Log In or Register!
+	  </center> </b>
   </div>
   <div class="card-section">
-    <form>
+    <form action = "/auth/" method="POST">
   		<div class="row">
     		<div class="medium-6 columns">
-      			<label>Username
-        			<input type="text" placeholder="oliviathepig">
-      			</label>
+      		<label>Username
+        		<input type="text" name="user" placeholder="oliviathepig">
+      		</label>
     		</div>
     		<div class="medium-6 columns">
-      			<label>Password
-        			<input type="text" placeholder="isadub">
-      			</label>
-    		</div>
-    		<br> <br>
-    		<center>
-    		<a class="button" href="/register/">Register!</a>
-    		</center>
-  		</div>
-	</form>
+          <label> Password
+            <div class="input-group">   
+              <input class="input-group-field" name="pw" type="Password">
+              <div class="input-group-button">
+                <input type="submit" class="button" value="Login">
+              </div>
+            </div>
+          </label>
+        </div>
+    	</div>
+    </form>
+    <center>
+    	<a class="button" href="/register/"> Register!</a>
+    </center>
   </div>
 </div>
 

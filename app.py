@@ -32,16 +32,30 @@ def upload_file(f):
     return filename
 
 
+
 @app.route("/")
 @app.route("/home/")
 def main():
-    return render_template('login.html')
+    if 'user' in session: 
+        return redirect(url_for("userHomePage"))
+    return render_template("login.html", message="")
 
+@app.route("/auth/", methods = ["POST"])
+def auth():
+    loginResponse = request.form
+    username = response["user"]
+    password = response["pw"]
+
+
+@app.route("/userHomePage/")
+def userHomePage():
+    return render_template("userHomePage.html")
 
 @app.route("/form1/")
 def form1():
     return render_template('form2.html')
 
+@app.route("/form2/")
 
 @app.route("/about/")
 def about():
