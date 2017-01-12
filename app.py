@@ -45,14 +45,20 @@ def auth():
     loginResponse = request.form
     username = response["user"]
     password = response["pw"]
+    #check if they good
 
 
 @app.route("/userHomePage/")
 def userHomePage():
     return render_template("userHomePage.html")
 
+@app.route("/register/")
+def register():
+    return render_template("form1.html")
+
 @app.route("/form1/")
 def form1():
+    #store the username and password from form1 ^^ in session
     return render_template('form2.html')
 
 @app.route("/form2/")
@@ -60,10 +66,6 @@ def form1():
 @app.route("/about/")
 def about():
     return render_template("about.html") 
-
-@app.route("/register/")
-def register():
-    return render_template("form1.html")
 
 
 
