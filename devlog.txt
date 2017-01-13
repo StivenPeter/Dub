@@ -17,4 +17,8 @@ ogal7 -- 2017-01-11 2:37
 ogal7 -- 2017-01-11 21:50
       added app routes, started login auth
 
+
+skabir8-- 2017-01-11 01:52
+      Finished basic eventbrite.py api fxn's
+
       
