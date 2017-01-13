@@ -1,6 +1,7 @@
 import hashlib
 import sqlite3
 
+#CREATE TABLE users2 (fname TEXT, lname TEXT, username TEXT, hashedpassword TEXT);
 
 def hashOG(x):
 	h = hashlib.sha256()
@@ -20,7 +21,7 @@ def checkLogin(userN, pw):
 	f = "data.db"
 	db = sqlite3.connect(f)
 	og = db.cursor()
-	s = "SELECT username, password FROM users WHERE username == userN;"
+	s = "SELECT username, hashedpassword FROM users2 WHERE username == username;"
 	t = og.execute(s)
 	hashed = hashOG(pw)
 	for record in t:

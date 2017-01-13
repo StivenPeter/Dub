@@ -17,6 +17,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 
+app.secret_key = "ajbddwhdajajfbsaiwfbsakqk72884bd"
+
+
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
@@ -43,14 +46,20 @@ def main():
 
 @app.route("/auth/", methods = ["POST"])
 def auth():
+    #users2 (fname TEXT, lname TEXT, username TEXT, hashedpassword TEXT);
     loginResponse = request.form
     username = loginResponse["user"]
     password = loginResponse["pw"]
     if authorize.checkLogin(username, password):
+        session['user'] = username
         return render_template("userHomePage.html")
     return render_template("login.html", message="not a match")
     #check if they good
 
+@app.route("/logout/")
+def logout():
+    session.pop("user")
+    return redirect(url_for("main"))
 
 @app.route("/userHomePage/")
 def userHomePage():
