@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import urllib2, os
+from utils import authorize
 from werkzeug.utils import secure_filename
 
 #from flask_bootstrap import Bootstrap
@@ -43,8 +44,11 @@ def main():
 @app.route("/auth/", methods = ["POST"])
 def auth():
     loginResponse = request.form
-    username = response["user"]
-    password = response["pw"]
+    username = loginResponse["user"]
+    password = loginResponse["pw"]
+    if authorize.checkLogin(username, password):
+        return render_template("userHomePage.html")
+    return render_template("login.html", message="not a match")
     #check if they good
 
 
@@ -54,12 +58,23 @@ def userHomePage():
 
 @app.route("/register/")
 def register():
-    return render_template("form1.html")
+    return render_template("form1.html", message="")
 
-@app.route("/form1/")
+@app.route("/form1/",methods =["POST"])
 def form1():
+    registerResponse = request.form
+    username = registerResponse['userN']
+    if authorize.checkRegister(username):
+        fn = registerResponse['fName']
+        ln = registerResponse['lName']
+        pw = registerResponse['pw']
+        authorize.createAccount(fn,ln,username, pw)
+        return render_template("form2.html")
+        #hash password, create acct
+    else: 
+        return render_template("form1.html", message="This username has already been taken!")
+
     #store the username and password from form1 ^^ in session
-    return render_template('form2.html')
 
 @app.route("/form2/")
 
