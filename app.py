@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import urllib2, os
+import hashlib
 from utils import authorize
+from utils import users
 from werkzeug.utils import secure_filename
 
 #from flask_bootstrap import Bootstrap
@@ -42,19 +44,48 @@ def upload_file(f):
 def main():
     if 'user' in session: 
         return redirect(url_for("userHomePage"))
-    return render_template("login.html", message="")
+    return render_template("login.html", message=session['message'])
+
+# def auth():
+#     #users2 (fname TEXT, lname TEXT, username TEXT, hashedpassword TEXT);
+#     loginResponse = request.form
+#     username = loginResponse["user"]
+#     password = loginResponse["pw"]
+#     if authorize.checkLogin(username, password):
+#         session['user'] = username
+#         return render_template("userHomePage.html")
+#     return render_template("login.html", message="not a match")
+#     #check if they good
 
 @app.route("/auth/", methods = ["POST"])
 def auth():
-    #users2 (fname TEXT, lname TEXT, username TEXT, hashedpassword TEXT);
-    loginResponse = request.form
-    username = loginResponse["user"]
-    password = loginResponse["pw"]
-    if authorize.checkLogin(username, password):
-        session['user'] = username
-        return render_template("userHomePage.html")
-    return render_template("login.html", message="not a match")
-    #check if they good
+	loginResponse = request.form
+	username = loginResponse["user"]
+	password = loginResponse["pw"]
+	username=request.form["user"]
+	if loginResponse["enter"]=='Register':
+		if username=='' or password =='':
+			session['message']='Invalid'
+			return redirect(url_for('main'))    
+		elif users.checkAccount(username)==False:
+			session['message']='Username exists'
+			return redirect(url_for('main'))           
+		result=users.addAccount(username,password)
+		if result==True:
+			session['user']=username
+			return redirect(url_for('userHomePage'))
+		else:
+			return redirect(url_for('main')) 
+
+	elif request.form['enter']=='Login':
+		dbPassword=users.getAccountPass(username)
+		if dbPassword==hashlib.sha256(password).hexdigest() and dbPassword != 'None':
+			session['user']=username
+			return redirect(url_for('userHomePage'))
+		else:
+			session['message']='Username or Password is incorrect'
+			redirect(url_for('main'))     
+	return redirect(url_for('main'))
 
 @app.route("/logout/")
 def logout():
