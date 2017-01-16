@@ -29,6 +29,7 @@ def checkLogin(userN, pw):
 			db.close()
     		return True
 	db.close()
+	return False
 
 
 
@@ -36,7 +37,7 @@ def checkRegister(userN):
 	f = "data.db"
 	db = sqlite3.connect(f)
 	og = db.cursor()
-	s = "SELECT username FROM users"
+	s = "SELECT username FROM users2"
 	t = og.execute(s)
 	for record in t:
 		if record[0] == userN:
