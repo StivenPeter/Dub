@@ -9,7 +9,7 @@ def hashOG(x):
 	return h.hexdigest()
 
 def createAccount(fn, ln, usern, unhashedp):
-	f = "data.db"
+	f = "data/data.db"
 	db = sqlite3.connect(f)
 	og = db.cursor()
 	insert = "INSERT INTO users2 VALUES ('%s', '%s', '%s', '%s')"%(fn, ln, usern, hashOG(unhashedp))
@@ -19,7 +19,7 @@ def createAccount(fn, ln, usern, unhashedp):
 
 def checkLogin(userN, pw):
 	hashed = hashOG(pw)
-	f = "data.db"
+	f = "data/data.db"
 	db = sqlite3.connect(f)
 	og = db.cursor()
 	s = "SELECT username, hashedpassword FROM users2 WHERE username =='" + userN + "';"
@@ -40,7 +40,7 @@ def checkLogin(userN, pw):
 
 
 def checkRegister(userN):
-	f = "data.db"
+	f = "data/data.db"
 	db = sqlite3.connect(f)
 	og = db.cursor()
 	s = "SELECT username FROM users2"
