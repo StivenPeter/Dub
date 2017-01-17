@@ -166,7 +166,8 @@ def pfp():
     interestList=newDict['interests']
     hobbies = newDict['hobbies']
     personalInfo.addEntry(username, interestList, newDict['bigthing'], newDict['zip'], newDict['gender'], newDict['age'], newDict['gendpref'], newDict['religionpref'], newDict['myreligion'], newDict['job'], newDict['politicalpref'], hobbies, newDict['mypolitics'], newDict['agediff'])
-    return redirect(url_for("userHomePage"))
+    return render_template("upload.html")
+    #return redirect(url_for("userHomePage"))
 
 
 @app.route("/about/")
