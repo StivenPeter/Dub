@@ -22,7 +22,11 @@ skabir8-- 2017-01-11 01:52
       Finished basic eventbrite.py api fxn's
 
 ogal7 -- 2017-01-13
-		created new users table, finished form1, logout works!
+	Created new users table, finished form1, logout works!
 		
+stivenP — 2017-01-14 
+	Reconfigured login and register. 
+	Created users.py, made basic formatting 
+	Changed form1 settings to radio boxed 
 
       
