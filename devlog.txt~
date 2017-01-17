@@ -14,4 +14,15 @@ P0rkins -- 2017-01-10 14:00
 ogal7 -- 2017-01-11 2:37
       finished first page of the form, started second page, added app routes and utils folder
 
+ogal7 -- 2017-01-11 21:50
+      added app routes, started login auth
+
+
+skabir8-- 2017-01-11 01:52
+      Finished basic eventbrite.py api fxn's
+
+ogal7 -- 2017-01-13
+		created new users table, finished form1, logout works!
+		
+
       

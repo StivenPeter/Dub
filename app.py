@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import urllib2, os
 import hashlib
-from utils import authorize
+from utils import authorize, personalInfo
 #from utils import users
 from werkzeug.utils import secure_filename
 
@@ -39,6 +39,18 @@ def upload_file(f):
 
 
 
+def isAnInterest(key):
+    if key == "bio" or key =="chem" or key == "math" or key =="history" or key=="physics" or key=="compsci" or key=="art" or key=="music" or key=="travel" or key=="popcult" or key=="sports" or key=="lit" or key=="food" or key=="pol" or key=="fem" or key=="memes":
+        return True
+    return False
+
+
+def isAHobby(key):
+    if key == "gaming" or key =="anime" or key == "comedy" or key =="eating" or key=="bike" or key=="hike" or key=="walks" or key=="hacking" or key=="music" or key=="instrument" or key=="sleeping" or key=="reading" or key=="sports" or key=="drama" or key=="animals" or key=="culinary" or key=="knitting" or key=="diy" or key=="concerts":
+        return True
+    return False
+
+
 @app.route("/")
 @app.route("/home/")
 def main():
@@ -65,6 +77,7 @@ def auth():
     formMethod = loginResponse['enter']
     if formMethod == "Login":
         if authorize.checkLogin(username,password) == True:
+            session['user']= username
             return redirect(url_for("userHomePage"))
         else:
             message = "login failed"
@@ -120,6 +133,7 @@ def form1():
         ln = registerResponse['lName']
         pw = registerResponse['pw']
         authorize.createAccount(fn,ln,username, pw)
+        session['user'] = username
         return redirect(url_for("form2"))
         #hash password, create acct
     else: 
@@ -131,6 +145,26 @@ def form1():
 @app.route("/form2/")
 def form2():
     return render_template("form2.html")
+#function from personalinfo
+#def addEntry(username, interestList, bigthing, zipcode, gender, age, gendpref, religionpref,myreligion, job, politicalpref, hobbies, mypolitics, agediff):
+
+@app.route("/uploadprofilepicture/", methods=["POST"])
+def pfp():
+    personalInfoStuff=request.form
+    newDict={'interests':[], 'hobbies':[]}
+    for key in personalInfoStuff:
+        if (isAHobby(key) or isAnInterest(key)):
+            if isAHobby(key):
+                newDict['hobbies'].append(key)
+            if isAnInterest(key):
+                newDict['interests'].append(key)
+        else:
+            newDict[key] = personalInfoStuff[key]
+    username = session['user']
+    interestList=newDict['interests']
+    hobbies = newDict['hobbies']
+    personalInfo.addEntry(username, interestList, newDict['bigthing'], newDict['zip'], newDict['gender'], newDict['age'], newDict['gendpref'], newDict['religionpref'], newDict['myreligion'], newDict['job'], newDict['politicalpref'], hobbies, newDict['mypolitics'], newDict['agediff'])
+    return redirect(url_for("userHomePage"))
 
 
 @app.route("/about/")
