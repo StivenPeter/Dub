@@ -24,17 +24,15 @@ def checkLogin(userN, pw):
 	og = db.cursor()
 	s = "SELECT username, hashedpassword FROM users2 WHERE username =='" + userN + "';"
 	t = og.execute(s)
-	print hashed + "    "
 	for record in t:
-		print record[1] == hashed	
-		if (record[1] == hashed) == False:
+		if record[1] == hashed:
 			print "hi"
     		db.close()
-    		return False	
+    		return True	
     	else:
     		print "hello"
     		db.close()
-    		return True
+    		return False
 	print "hi"
 	db.close()
 	return False

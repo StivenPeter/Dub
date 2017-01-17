@@ -76,7 +76,6 @@ def auth():
     password = loginResponse["pw"]
     formMethod = loginResponse['enter']
     if formMethod == "Login":
-        print authorize.checkLogin(username,password)
         if authorize.checkLogin(username,password) == True:
             session['user']= username
             return redirect(url_for("userHomePage"))
@@ -126,7 +125,7 @@ def userHomePage():
 def register():
     return render_template("form1.html", message="")
 
-@app.route("/form1/",methods =["POST"])
+@app.route("/form1/", methods =["POST"])
 def form1():
     registerResponse = request.form
     username = registerResponse['userN']
