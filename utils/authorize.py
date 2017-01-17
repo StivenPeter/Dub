@@ -27,12 +27,12 @@ def checkLogin(userN, pw):
 	for record in t:
 		if record[1] == hashed:
 			print "hi"
-    		db.close()
-    		return True	
-    	else:
-    		print "hello"
-    		db.close()
-    		return False
+    			db.close()
+    			return True	
+    		else:
+    			print "hello"
+    			db.close()
+    			return False
 	print "hi"
 	db.close()
 	return False
