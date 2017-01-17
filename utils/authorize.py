@@ -18,16 +18,24 @@ def createAccount(fn, ln, usern, unhashedp):
 	db.close()
 
 def checkLogin(userN, pw):
+	hashed = hashOG(pw)
 	f = "data.db"
 	db = sqlite3.connect(f)
 	og = db.cursor()
-	s = "SELECT username, hashedpassword FROM users2 WHERE username == username;"
+	s = "SELECT username, hashedpassword FROM users2 WHERE username =='" + userN + "';"
 	t = og.execute(s)
-	hashed = hashOG(pw)
+	print hashed + "    "
 	for record in t:
-		if record[1] == hashed:
-			db.close()
+		print record[1] == hashed	
+		if (record[1] == hashed) == False:
+			print "hi"
+    		db.close()
+    		return False	
+    	else:
+    		print "hello"
+    		db.close()
     		return True
+	print "hi"
 	db.close()
 	return False
 

@@ -76,11 +76,14 @@ def auth():
     password = loginResponse["pw"]
     formMethod = loginResponse['enter']
     if formMethod == "Login":
+        print authorize.checkLogin(username,password)
         if authorize.checkLogin(username,password) == True:
             session['user']= username
             return redirect(url_for("userHomePage"))
         else:
             message = "login failed"
+            if 'user' in session:
+                session.pop('user')
             return redirect(url_for("main"))
     if formMethod == "Register":
         return redirect(url_for("register"))
