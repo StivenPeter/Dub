@@ -27,7 +27,7 @@ def addEntry(username, interestList, bigthing, zipcode, gender, age, gendpref, r
 	return True
 
 
-def addprofile(username, filename)
+def addprofile(username, filename):
 	f = "data/data.db"
 	db = sqlite3.connect(f)
 	sp = db.cursor()
