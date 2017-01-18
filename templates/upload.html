@@ -11,7 +11,7 @@
 {% block style %}
 	.card {
 		margin:auto;
-		margin-top:4%;
+		margin-top:13%;
 		radius:10px 10px 10px 10px;
 	}
 	.card-divider {
@@ -29,8 +29,13 @@
 
 
 {% block body %}
-<div align="center" class="card" style="width: 60%; height: 70%;">
+<div align="center" class="card" style="width: 40%; height: 70%;">
 <form action="/profilepic/" method="POST" enctype="multipart/form-data">
+<div class="card-divider"> 
+  	<center> <b>
+      Upload A Profile Picture!
+	  </center> </b>
+  </div>
 <div>
 <label for="exampleFileUpload" class="button">Upload File</label>
 <input type="file" id="exampleFileUpload"  name="upload" class="show-for-sr">
