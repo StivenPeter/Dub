@@ -8,7 +8,7 @@ import sqlite3
 #zipcode TEXT, gender TEXT, age TEXT, gendpref TEXT, 
 #religionpref TEXT, myreligion TEXT, job TEXT, 
 #politicalpref TEXT, hobby1 TEXT, hobby2 TEXT, hobby3 TEXT, 
-#mypolitics TEXT, agediff TEXT);
+#mypolitics TEXT, agediff TEXT, profile TEXT);
 
 def addEntry(username, interestList, bigthing, zipcode, gender, age, gendpref, religionpref,myreligion, job, politicalpref, hobbies, mypolitics, agediff):
 	f = "data/data.db"
@@ -20,7 +20,7 @@ def addEntry(username, interestList, bigthing, zipcode, gender, age, gendpref, r
 	hobby1 = hobbies[0]
 	hobby2 = hobbies[1]
 	hobby3 = hobbies[2]
-	insert = "INSERT INTO users VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s', '%s')"%(username, interest1, interest2, interest3, bigthing, zipcode, gender, age, gendpref, religionpref, myreligion, job, politicalpref, hobby1, hobby2, hobby3, mypolitics, agediff)
+	insert = "INSERT INTO users VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s', '%s','')"%(username, interest1, interest2, interest3, bigthing, zipcode, gender, age, gendpref, religionpref, myreligion, job, politicalpref, hobby1, hobby2, hobby3, mypolitics, agediff)
 	og.execute(insert)
 	db.commit()
 	db.close()
@@ -32,7 +32,7 @@ def addprofile(username, filename):
 	db = sqlite3.connect(f)
 	sp = db.cursor()
 	path =  path = "static/pfp/" + filename
-	insert = "INSERT INTO users VALUES ('%s','%s')"%(username,path)
+	insert = "UPDATE users SET pfp='%s' WHERE username='%s'"%(path, username)
 	sp.execute(insert)
 	db.commit()
 	db.close()

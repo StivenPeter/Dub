@@ -33,8 +33,9 @@ ogal7 -- 2017-01-16
 	created personalinfo database table, finished login and registration/personal info functionality + data parsing for personal
 	info form
 
-stivenP — 2017-01-17 
+stivenP — 2017-01-17  20:46
 	Finished Upload functionality 
-	Added adipic to personal info 
+	Added addprofile to personal info 
 	formatted upload.html
+	Changed users table, added pfp column
       
