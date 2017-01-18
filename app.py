@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 
 #Bootstrap(app)
 #app.secret_key = os.urandom(10)
-UPLOAD_FOLDER="static"
+UPLOAD_FOLDER="static/pfp"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 message = ""
 
@@ -27,7 +27,7 @@ def allowed_file(filename):
 
 def upload_file(f):
     file = f['upload']
-    filename = "default.jpg"
+    filename = "default.png"
     if file.filename == '':
         return filename
     try:
@@ -68,6 +68,15 @@ def main():
 #         return render_template("userHomePage.html")
 #     return render_template("login.html", message="not a match")
 #     #check if they good
+
+@app.route("/profilepic/", methods=["POST"])
+def pfp(): 
+	print request.files
+	filename = upload_file(request.files)
+	personalInfo.addprofile(session['user'],filename)
+	return redirect(url_for("userHomePage"))
+
+
 
 @app.route("/auth/", methods = ["POST"])
 def auth():
@@ -150,8 +159,8 @@ def form2():
 #function from personalinfo
 #def addEntry(username, interestList, bigthing, zipcode, gender, age, gendpref, religionpref,myreligion, job, politicalpref, hobbies, mypolitics, agediff):
 
-@app.route("/uploadprofilepicture/", methods=["POST"])
-def pfp():
+@app.route("/userinfo/", methods=["POST"])
+def userinfo():
     personalInfoStuff=request.form
     newDict={'interests':[], 'hobbies':[]}
     for key in personalInfoStuff:

@@ -11,7 +11,7 @@ import sqlite3
 #mypolitics TEXT, agediff TEXT);
 
 def addEntry(username, interestList, bigthing, zipcode, gender, age, gendpref, religionpref,myreligion, job, politicalpref, hobbies, mypolitics, agediff):
-	f = "data.db"
+	f = "data/data.db"
 	db = sqlite3.connect(f)
 	og = db.cursor()
 	interest1 = interestList[0]
@@ -27,3 +27,13 @@ def addEntry(username, interestList, bigthing, zipcode, gender, age, gendpref, r
 	return True
 
 
+def addprofile(username, filename)
+	f = "data/data.db"
+	db = sqlite3.connect(f)
+	sp = db.cursor()
+	path =  path = "static/pfp/" + filename
+	insert = "INSERT INTO users VALUES ('%s','%s')"%(username,path)
+	sp.execute(insert)
+	db.commit()
+	db.close()
+	return True

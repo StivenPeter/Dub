@@ -29,11 +29,13 @@
 
 
 {% block body %}
-<form action="/profilepic/" method="POST">
+<div align="center" class="card" style="width: 60%; height: 70%;">
+<form action="/profilepic/" method="POST" enctype="multipart/form-data">>
 <label for="exampleFileUpload" class="button">Upload File</label>
-<input type="file" id="exampleFileUpload" class="show-for-sr">
+<input type="file" id="exampleFileUpload"  name="upload" class="show-for-sr">
 <button type="Submit" class="button"> YAY! </button>
 </form>
+</div>
 
 
 {% endblock %}

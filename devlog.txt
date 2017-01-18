@@ -24,16 +24,17 @@ skabir8-- 2017-01-11 01:52
 ogal7 -- 2017-01-13
 	Created new users table, finished form1, logout works!
 		
-<<<<<<< HEAD
-ogal7 -- 2017-01-16
-	created personalinfo database table, finished login and registration/personal info functionality + data parsing for personal
-	info form
-
-=======
 stivenP — 2017-01-14 
 	Reconfigured login and register. 
 	Created users.py, made basic formatting 
 	Changed form1 settings to radio boxed 
->>>>>>> 9463642263185d895f8dadb91fd08604dcd134ae
 
+ogal7 -- 2017-01-16
+	created personalinfo database table, finished login and registration/personal info functionality + data parsing for personal
+	info form
+
+stivenP — 2017-01-17 
+	Finished Upload functionality 
+	Added adipic to personal info 
+	formatted upload.html
       
