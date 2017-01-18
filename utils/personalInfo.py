@@ -32,6 +32,7 @@ def addprofile(username, filename):
 	db = sqlite3.connect(f)
 	sp = db.cursor()
 	path =  path = "static/pfp/" + filename
+	print "path:  " + path
 	insert = "UPDATE users SET pfp='%s' WHERE username='%s'"%(path, username)
 	sp.execute(insert)
 	db.commit()
