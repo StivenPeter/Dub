@@ -2,11 +2,357 @@
  
 
 {% block head %}
-	 <a href="#">Settings</a>
+	  <a href="/settings/">Settings</a>
 	  <a href="#">Log Out</a>
 {% endblock %}
 
 
 {% block body %}
-<h1> hi </h1>
+
+
+<div class="card" style="width: 98%; height: 100em;">
+<div class="card-divider"> 
+  		<center> <b>
+    		Create Your Profile!
+		</center> </b>
+  	</div>
+  	<div class="card-section">
+  		<!-- Age, Age looking for, Gender, gender looking for -->
+  		<form action="/updatesettings/" method="POST">
+  			<div class="row">
+  				<div class="large-6 columns">
+  					<label>How Old Are You?
+  						<select name="age">
+    						<option value="16">16</option>
+    						<option value="17">17</option>
+    						<option value="18">18</option>
+    						<option value="19">19</option>
+	    					<option value="20">20</option>
+	    					<option value="21">21</option>
+	    					<option value="22">22</option>
+	    					<option value="23">23</option>
+	    					<option value="24">24</option>
+	    					<option value="25">25</option>
+	    					<option value="26">26</option>
+	    					<option value="27">27</option>
+	    					<option value="28">28</option>
+	    					<option value="29">29</option>
+	    					<option value="30">30</option>
+	    					<option value="31">31</option>
+	    					<option value="32">32</option>
+	    					<option value="33">33</option>
+	    					<option value="34">34</option>
+	    					<option value="35">35</option>
+	    					<option value="36">36</option>
+	    					<option value="37">37</option>
+	    					<option value="38">38</option>
+	    					<option value="39">39</option>
+	    					<option value="40">40</option>
+	    					<option value="41">41</option>
+	    					<option value="42">42</option>
+	    					<option value="43">43</option>
+	    					<option value="44">44</option>
+	    					<option value="45">45</option>
+	    					<option value="46">46</option>
+	    					<option value="47">47</option>
+	    					<option value="48">48</option>
+	    					<option value="49">49</option>
+	    					<option value="50">50</option>
+  						</select>
+					</label>
+				</div>
+				<div class="large-6 columns">
+  					<label>What is the <i> Maximum </i> age difference you would prefer between you and your match?
+  						<select name="agediff">
+  							<option value="0">No Preference</option>
+    						<option value="1">1 year</option>
+    						<option value="2">2 years</option>
+    						<option value="3">3 years</option>
+    						<option value="4">4 years</option>
+	    					<option value="5">5 years</option>
+	    					<option value="6">6 years</option>
+	    					<option value="7">7 years</option>
+	    					<option value="8">8 years</option>
+	    					<option value="9">9 years</option>
+	    					<option value="10">10 years</option>
+	    					<option value="11">11 years</option>
+	    					<option value="12">12 years</option>
+	    					<option value="13">13 years</option>
+	    					<option value="14">14 years</option>
+  						</select>
+					</label>
+				</div>
+  			</div>
+  			<br>
+  			
+  			<div class="row">
+  				<div class="large-6 columns">
+    				<legend>I am a...</legend>
+    					<input id="checkbox1" type="radio" name="gender" value="woman"><label for="checkbox1">Woman</label>
+    					<input id="checkbox2" type="radio" name="gender" value="man"><label for="checkbox2">Man</label>
+    					<input id="checkbox3" type="radio" name="gender" value="nonconforming"><label for="checkbox3">~Nonconforming~</label>
+  				</div>
+  				<div class="large-6 columns">
+    				<legend>Interested in...</legend>
+    					<input id="checkbox4" type="radio" name="gendpref" value="women" >
+    						<label for="checkbox4">Women</label>
+    					<input id="checkbox5" type="radio" name="gendpref" value="men">
+    						<label for="checkbox5">Men</label>
+    					<input id="checkbox6" type="radio" name="gendpref" value="nopref">
+    						<label for="checkbox6">No Preference</label>
+    					<input id="checkbox7" type="radio" name="gendpref" value="both">
+    						<label for="checkbox7">Both</label>
+  				</div>
+  			</div>
+  
+  			<br> <br>
+  			<!--Religion-->
+  			<div class="row">
+			  	<div class="large-6 columns">
+
+			  		<legend>The religion I identify with is...</legend>
+    					<input id="checkbox8" type="radio" name="myreligion" value="christ">
+    					<label for="checkbox8">Christianity</label>
+    					<input id="checkbox9" type="radio" name="myreligion" value="cath">
+    					<label for="checkbox9">Catholicism</label> 
+    					<input id="checkbox10" type="radio" name="myreligion" value="prot">
+    					<label for="checkbox10">Protestantism</label> <br>
+    					<input id="checkbox11" type="radio" name="myreligion" value="shi">
+    					<label for="checkbox11">Shi'ism</label> 
+    					<input id="checkbox12" type="radio" name="myreligion" value="sunni">
+    					<label for="checkbox12">Sunnism</label>
+    					<input id="checkbox13" type="radio" name="myreligion" value="jewish">
+    					<label for="checkbox13">Judaism</label>  <br>
+    					<input id="checkbox14" type="radio" name="myreligion" value="atheist">
+    					<label for="checkbox14">Atheist</label>
+    					<input id="checkbox15" type="radio" name="myreligion" value="agno">
+    					<label for="checkbox15">Agnostic</label> 
+    					<input id="checkbox16" type="radio" name="myreligion" value="hind">
+    					<label for="checkbox16">Hinduism</label> <br>
+    					<input id="checkbox17" type="radio" name="myreligion" value="budd">
+    					<label for="checkbox17">Buddhism</label> 
+    					<input id="checkbox18" type="radio" name="myreligion" value="baha">
+    					<label for="checkbox18">Bahaism</label>
+    					<input id="checkbox19" type="radio" name="myreligion" value="EO">
+    					<label for="checkbox19">Eastern Orthodox</label>  <br>
+    					<input id="checkbox20" type="radio" name="myreligion" value="na">
+    					<label for="checkbox20">None/Not Listed</label>
+			  	</div>				
+			  	<div class="large-6 columns">
+
+			  		<legend>On a scale of 1-10, 1 being most important, how important is it that your partner practices the same religion as you?</legend>
+    					<input id="checkbox21" type="radio" name="religionpref" value="1"> 
+    					<label for="checkbox21">1</label> 
+    					<input id="checkbox22" type="radio" name="religionpref" value="2">
+    					<label for="checkbox22">2</label> 
+    					<input id="checkbox23" type="radio" name="religionpref" value="3">
+    					<label for="checkbox23">3</label>
+    					<input id="checkbox24" type="radio" name="religionpref" value="4">
+    					<label for="checkbox24">4</label> 
+    					<input id="checkbox25" type="radio" name="religionpref" value="5">
+    					<label for="checkbox25">5</label> <br>
+    					<input id="checkbox26" type="radio" name="religionpref" value="6">
+    					<label for="checkbox26">6</label> 
+    					<input id="checkbox27" type="radio" name="religionpref" value="7">
+    					<label for="checkbox27">7</label>
+    					<input id="checkbox28" type="radio" name="religionpref" value="8">
+    					<label for="checkbox28">8</label> 
+    					<input id="checkbox29" type="radio" name="religionpref" value="9">
+    					<label for="checkbox29">9</label>
+    					<input id="checkbox30" type="radio" name="religionpref" value="10">
+    					<label for="checkbox30">10</label> 
+			  	</div>
+  			</div>
+			
+  			<br> <br>
+  			<!--POLITICS-->
+  			<div class="row">
+			  	<div class="large-6 columns">
+			  		<legend>Politically, I identify as a...</legend>
+    					<input id="checkbox31" type="radio" name="mypolitics" value="liberal">
+    					<label for="checkbox31">Liberal</label>
+    					<input id="checkbox32" type="radio" name="mypolitics" value="fiscalCons">
+    					<label for="checkbo32">Fiscal Conservative</label> 
+    					<input id="checkbox33" type="radio" name="mypolitics" value="mainCons">
+    					<label for="checkbox33">Mainstream Conservative</label> <br>
+    					<input id="checkbox34" type="radio" name="mypolitics" value="socCon">
+    					<label for="checkbox34">Social Conservative</label> 
+    					<input id="checkbox35" type="radio" name="mypolitics" value="moderate">
+    					<label for="checkbox35">Moderate</label>
+    					<input id="checkbox36" type="radio" name="mypolitics" value="socialist">
+    					<label for="checkbox36">Socialist</label>  <br>
+    					<input id="checkbox37" type="radio" name="mypolitics" value="libertarian">
+    					<label for="checkbox37">Libertarian</label>
+    					<input id="checkbox38" type="radio" name="mypolitics" value="green">
+    					<label for="checkbox38">Green Party</label> 
+    					<input id="checkbox39" type="radio" name="mypolitics" value="na">
+    					<label for="checkbox39">None/Not Listed</label> 
+    					
+			  	</div>				
+			  	<div class="large-6 columns">
+
+			  		<legend>On a scale of 1-10, 1 being most important, how important is it that your partner shares the same political views as you?</legend>
+    					<input id="checkbox40" type="radio" name="politicalpref" value="1"> 
+    					<label for="checkbox40">1</label> 
+    					<input id="checkbox41" type="radio" name="politicalpref" value="2">
+    					<label for="checkbox41">2</label> 
+    					<input id="checkbox42" type="radio" name="politicalpref" value="3">
+    					<label for="checkbox42">3</label>
+    					<input id="checkbox43" type="radio" name="politicalpref" value="4">
+    					<label for="checkbox43">4</label> 
+    					<input id="checkbox44" type="radio" name="politicalpref" value="5">
+    					<label for="checkbox44">5</label> <br>
+    					<input id="checkbox45" type="radio" name="politicalpref" value="6">
+    					<label for="checkbox45">6</label> 
+    					<input id="checkbox46" type="radio" name="politicalpref" value="7">
+    					<label for="checkbox46">7</label>
+    					<input id="checkbox47" type="radio" name="politicalpref" value="8">
+    					<label for="checkbox47">8</label> 
+    					<input id="checkbox48" type="radio" name="politicalpref" value="9">
+    					<label for="checkbox48">9</label>
+    					<input id="checkbox49" type="radio" name="politicalpref" value="10">
+    					<label for="checkbox49">10</label> 
+			  	</div>
+
+  			</div>
+
+<br> <br>
+  			<!--JOB-->
+  			<div class="row">
+			  	<div class="large-6 columns">
+			  		<legend>I work in...</legend>
+    					<input id="checkbox50" type="radio" name="job" value="acct"> 
+    					<label for="checkbox50">Accounting</label> 
+    					<input id="checkbox51" type="radio" name="job" value="exec">
+    					<label for="checkbox51">Executive</label> <br>
+    					<input id="checkbox52" type="radio" name="job" value="manu">
+    					<label for="checkbox52">Manufacturing</label> 
+    					<input id="checkbox53" type="radio" name="job" value="admin">
+    					<label for="checkbox53">Administrative/Clerical</label> <br>
+    					<input id="checkbox54" type="radio" name="job" value="franch">
+    					<label for="checkbox54">Franchise</label> 
+    					<input id="checkbox55" type="radio" name="job" value="nonp">
+    					<label for="checkbox55">Nonprofit</label> <br>
+    					<input id="checkbox56" type="radio" name="job" value="bank">
+    					<label for="checkbox56">Banking/Finance</label>
+    					<input id="checkbox57" type="radio" name="job" value="gov">
+    					<label for="checkbox57">Government</label> <br>
+    					<input id="checkbox58" type="radio" name="job" value="pt">
+    					<label for="checkbox58">Part Time</label> 
+    					<input id="checkbox59" type="radio" name="job" value="busi">
+    					<label for="checkbox59">Business Opportunities</label> <br>
+    					<input id="checkbox60" type="radio" name="job" value="HC">
+    					<label for="checkbox60">Health Care</label>
+    					<input id="checkbox61" type="radio" name="job" value="retail">
+    					<label for="checkbox61">Retail</label> <br>
+    					<input id="checkbox62" type="radio" name="job" value="contract">
+    					<label for="checkbox62">Contract and Freelance</label>
+    					<input id="checkbox63" type="radio" name="job" value="student">
+    					<label for="checkbox63">Student</label> <br>
+    					<input id="checkbox64" type="radio" name="job" value="sales">
+    					<label for="checkbox64">Sales and Marketing</label> 
+    					<input id="checkbox65" type="radio" name="job" value="cust">
+    					<label for="checkbox65">Customer Service</label> <br>
+    					<input id="checkbox66" type="radio" name="job" value="HR">			
+    					<label for="checkbox66">Human Resources</label>
+    					<input id="checkbox67" type="radio" name="job" value="sci">
+    					<label for="checkbox67">Science and Biotech</label> <br>
+    					<input id="checkbox68" type="radio" name="job" value="diversity">
+    					<label for="checkbox68">Diversity Opportunities</label>
+    					<input id="checkbox69" type="radio" name="job" value="IT">
+    					<label for="checkbox69">Information Technology</label> <br>
+    					<input id="checkbox70" type="radio" name="job" value="trans">
+    					<label for="checkbox70">Transportation</label> 
+    					<input id="checkbox71" type="radio" name="job" value="eng">
+    					<label for="checkbox71">Engineering</label> <br>
+    					<input id="checkbox72" type="radio" name="job" value="internships">
+    					<label for="checkbox72">Internships and College</label> 
+			  	</div>
+
+			  	<!--nerd-->
+				<div class="large-6 columns">
+					<legend>(Some of My Interests Include...(<b> Pick Three </b>)</legend>
+    				<input id="checkbox73" type="checkbox" name="bio" value="yes"><label for="checkbox73">Biology</label>
+    				<input id="checkbox74" type="checkbox" name="chem" value="yes"><label for="checkbox74">Chemistry</label>
+    				<input id="checkbox75" type="checkbox" name="math" value="yes"><label for="checkbox75">Math</label>
+    				<input id="checkbox76" type="checkbox" name="history" value="yes"><label for="checkbox76">History</label> <br>
+    				<input id="checkbox77" type="checkbox" name="physics" value="yes"><label for="checkbox77">Physics</label>
+    				<input id="checkbox78" type="checkbox" name="compsci" value="yes"><label for="checkbox78">Computers</label>
+    				<input id="checkbox79" type="checkbox" name="art" value="yes"><label for="checkbox79">Art</label>
+    				<input id="checkbox80" type="checkbox" name="music" value="yes"><label for="checkbox80">Music</label> <br>
+    				<input id="checkbox81" type="checkbox" name="travel" value="yes"><label for="checkbox81">Traveling</label>
+    				<input id="checkbox82" type="checkbox" name="popcult" value="yes"><label for="checkbox82">Pop Culture</label>
+    				<input id="checkbox83" type="checkbox" name="sports" value="yes"><label for="checkbox83">Sports</label> 
+    				<input id="checkbox84" type="checkbox" name="lit" value="yes"><label for="checkbox84">Literature</label> <br>
+    				<input id="checkbox85" type="checkbox" name="food" value="yes"><label for="checkbox85">Food & Wine</label>
+    				<input id="checkbox86" type="checkbox" name="pol" value="yes"><label for="checkbox86">Politics</label>
+    				<input id="checkbox87" type="checkbox" name="fem" value="yes"><label for="checkbox87">Feminism</label>
+    				<input id="checkbox88" type="checkbox" name="memes" value="yes"><label for="checkbox88">Memes</label> <br>
+			  	</div>				
+  			</div>
+
+  			<br>
+  				
+  			<!--HOBBIES-->
+  			<div class="row">
+			  	<div class="large-6 columns">
+					<legend>Some of My Hobbies Include...(<b> Pick Three </b>)</legend>
+    				<input id="checkbox89" type="checkbox" name="gaming" value="yes"><label for="checkbox89">Gaming</label>
+    				<input id="checkbox90" type="checkbox" name="anime" value="yes"><label for="checkbox90">Watching Anime</label>
+    				<input id="checkbox91" type="checkbox" name="comedy" value="yes"><label for="checkbox91">Watching Comedy T.V.</label> <br>
+    				<input id="checkbox92" type="checkbox" name="eating" value="yes"><label for="checkbox92">Eating</label>
+    				<input id="checkbox93" type="checkbox" name="bike" value="yes"><label for="checkbox93">Biking</label>
+    				<input id="checkbox94" type="checkbox" name="hike" value="yes"><label for="checkbox94">Hiking</label> <br>
+    				<input id="checkbox95" type="checkbox" name="walks" value="yes"><label for="checkbox95">Taking Walks</label>
+    				<input id="checkbox96" type="checkbox" name="hacking" value="yes"><label for="checkbox96">Hackathons</label>
+    				<input id="checkbox97" type="checkbox" name="music" value="yes"><label for="checkbox97">Listening to Music</label> <br>
+    				<input id="checkbox98" type="checkbox" name="instrument" value="yes"><label for="checkbox98">Playing an Instrument</label>
+    				<input id="checkbox99" type="checkbox" name="sleeping" value="yes"><label for="checkbox99">Sleeping</label>
+    				<input id="checkbox100" type="checkbox" name="reading" value="yes"><label for="checkbox100">Reading</label> <br>
+    				<input id="checkbox101" type="checkbox" name="sports" value="yes"><label for="checkbox101">Sports</label>
+    				<input id="checkbox102" type="checkbox" name="drama" value="yes"><label for="checkbox102">Watching Drama T.V.</label>
+    				<input id="checkbox103" type="checkbox" name="animals" value="yes"><label for="checkbox103">Playing with Animals</label> <br>
+    				<input id="checkbox104" type="checkbox" name="culinary" value="yes"><label for="checkbox104">Cooking/Baking</label>
+    				<input id="checkbox105" type="checkbox" name="knitting" value="yes"><label for="checkbox105">Knitting</label>
+    				<input id="checkbox106" type="checkbox" name="diy" value="yes"><label for="checkbox106">DIY</label> <br>
+                    <input id="checkbox107" type="checkbox" name="concerts" value="yes"><label for="checkbox107">Going to Concerts</label>
+			  	</div>					
+			  	<div class="large-6 columns">
+			  		<legend>The biggest thing I look for in a relationship is...</legend>
+    				<input id="checkbox108" type="radio" name="bigthing" value="loyal"><label for="checkbox108">Loyalty</label>
+    				<input id="checkbox109" type="radio" name="bigthing" value="stable"><label for="checkbox109">Stability</label> <br>
+    				<input id="checkbox110" type="radio" name="bigthing" value="laugh"><label for="checkbox110">Laughter</label> 
+    				<input id="checkbox111" type="radio" name="bigthing" value="intel"><label for="checkbox111">Intellectual Stimulation</label> <br>
+    				<input id="checkbox112" type="radio" name="bigthing" value="sex"><label for="checkbox112">Sex</label>
+    				<input id="checkbox113" type="radio" name="bigthing" value="emo"><label for="checkbox113">A Deep Emotional Connection</label> <br>
+    				<input id="checkbox114" type="radio" name="bigthing" value="spont"><label for="checkbox114">Spontaneity</label>
+    				<input id="checkbox115" type="radio" name="bigthing" value="study"><label for="checkbox115">A Study Buddy</label><br>
+			  	</div>
+  			</div>
+
+  			<br> <br>
+
+  			<!--LOCATION-->
+  			<div class="row">
+  				<div class="large-6 columns">	
+			  	<label>
+  				Please Enter Your Zipcode:
+  				<input type="text" name="zip" placeholder="12345">
+				</label>
+				</div>
+  			</div>
+
+
+
+
+  			</div>
+  			<center>
+    		<button type="Submit" class="button"> Next </button>
+    		</center> 			
+  		</form>
+
+
+
+
+</div>
 {% endblock %}
