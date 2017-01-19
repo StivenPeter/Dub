@@ -20,7 +20,43 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 
-app.secret_key = "ajbddwhdajajfbsaiwfbsakqk72884bd"
+app.secret_key = "ajbddwhdajwwwwajfbsaiwfbsakqk72884bd"
+
+def numberToMonth(num):
+    if (num == 1):
+        return "January"
+    if (num == 2):
+        return "February"
+    if (num == 3):
+        return "March"
+    if (num == 4):
+        return "April"
+    if (num == 5):
+        return "May"
+    if (num == 6):
+        return "June"
+    if (num == 7):
+        return "July"
+    if (num == 8):
+        return "August"
+    if (num == 9):
+        return "September"
+    if (num == 10):
+        return "October"
+    if (num == 11):
+        return "November"
+    if (num == 12):
+        return "December"
+
+def aujourdhui():
+    retstr = ""
+    datelist = time.localtime()
+    year = str(datelist[0])
+    month = numberToMonth(datelist[1])
+    day = str(datelist[2])
+    retstr = month + " " + day + ", " + year
+    #for item in time.localtime():
+        
 
 
 def allowed_file(filename):
@@ -55,9 +91,10 @@ def isAHobby(key):
 @app.route("/")
 @app.route("/home/")
 def main():
+    datestring = aujourdhui()
     if 'user' in session: 
         return redirect(url_for("userHomePage"))
-    return render_template("login.html", message = message)
+    return render_template("login.html", message = message, date=datestring)
 
 # def auth():
 #     #users2 (fname TEXT, lname TEXT, username TEXT, hashedpassword TEXT);
@@ -194,7 +231,7 @@ def change():
     interestList=newDict['interests']
     hobbies = newDict['hobbies']
     personalInfo.changeSettings(username, interestList, newDict['bigthing'], newDict['zip'], newDict['gender'], newDict['age'], newDict['gendpref'], newDict['religionpref'], newDict['myreligion'], newDict['job'], newDict['politicalpref'], hobbies, newDict['mypolitics'], newDict['agediff'])
-    if 'upload' not in request.files
+    if 'upload' not in request.files:
         return redirect(url_for("userHomePage"))
     else:
         filename = upload_file(request.files)
@@ -204,7 +241,7 @@ def change():
 
 
 
-@app.route("/about/", methods=["POST"])
+@app.route("/about/")
 def about():
     return render_template("about.html") 
 
@@ -225,6 +262,9 @@ def matches():
 @app.route("/events/", methods=["POST"])
 def events():
     return render_template("events.html")
+
+
+
 
 
 if(__name__ == "__main__"):
