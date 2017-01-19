@@ -2,9 +2,31 @@
  
 
 {% block head %}
-	  <a href="/settings/">Settings</a>
+	  <a href="/settings/"> Settings</button>
 	  <a href="#">Log Out</a>
 {% endblock %}
+
+
+{% block style %}
+	.card {
+		margin:auto;
+		margin-top:4%;
+		radius:10px 10px 10px 10px;
+	}
+	.card-divider {
+		background:#4BA3C3;
+		border:#4BA3C3;
+	}
+	.card-section{
+		border:#4BA3C3;
+	}
+	.button{
+		margin: 20px 10px 10px 10px;
+		background:#BA324F;
+	}
+{% endblock %}
+
+
 
 
 {% block body %}
@@ -13,12 +35,19 @@
 <div class="card" style="width: 98%; height: 100em;">
 <div class="card-divider"> 
   		<center> <b>
-    		Create Your Profile!
+    		Update Your Profile!
 		</center> </b>
   	</div>
-  	<div class="card-section">
+ 
   		<!-- Age, Age looking for, Gender, gender looking for -->
   		<form action="/updatesettings/" method="POST">
+  			<div class="card-section">
+  				<center>
+  				<label for="exampleFileUpload" class="button">Upload File</label>
+				<input type="file" id="exampleFileUpload"  name="upload" class="show-for-sr">
+			</center>
+			</div>
+			<br> <br>
   			<div class="row">
   				<div class="large-6 columns">
   					<label>How Old Are You?

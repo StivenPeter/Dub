@@ -184,7 +184,9 @@ def userinfo():
 def about():
     return render_template("about.html") 
 
-@app.route("/settings/", methods=["POST"])
+@app.route("/settings/")
+def settings():
+    return render_template("settings.html")
 
 
 @app.route("/messages/", methods=["POST"])
