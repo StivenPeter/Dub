@@ -179,10 +179,23 @@ def userinfo():
     #return redirect(url_for("userHomePage"))
 
 
-@app.route("/about/")
+@app.route("/about/", methods=["POST"])
 def about():
     return render_template("about.html") 
 
+
+@app.route("/messages/", methods=["POST"])
+def messages():
+    return render_template("messages.html")
+
+
+@app.route("/matches/", methods=["POST"])
+def matches():
+    return render_template("matches.html")
+
+@app.route("/events/", methods=["POST"])
+def events():
+    return render_template("events.html")
 
 
 if(__name__ == "__main__"):

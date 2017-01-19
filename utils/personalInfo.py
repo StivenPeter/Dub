@@ -52,7 +52,7 @@ def changeProfile(username, filename):
 	deleteProfile(username)
 	addprofile(username,filename)
 
-def deleteProfile(username)
+def deleteProfile(username):
 	f = "data/data.db"
 	db = sqlite3.connect(f)
 	sp = db.cursor()
@@ -61,7 +61,7 @@ def deleteProfile(username)
 	os.remove(prevfile)
 	db.close()
 
-def changeSettings(username, interestList, bigthing, zipcode, gender, age, gendpref, religionpref,myreligion, job, politicalpref, hobbies, mypolitics, agediff)
+def changeSettings(username, interestList, bigthing, zipcode, gender, age, gendpref, religionpref, myreligion, job, politicalpref, hobbies, mypolitics, agediff):
 	f = "data/data.db"
 	db = sqlite3.connect(f)
 	og = db.cursor()
