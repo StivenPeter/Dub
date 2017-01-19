@@ -38,7 +38,9 @@ stivenP — 2017-01-17  20:46
 	Added addprofile to personal info 
 	formatted upload.html
 	Changed users table, added pfp column
-
+stivenP -- 2017-01-18 20:00
+	Added change functions to personal info 
+	
 ogal7 -- 2017-01-19 2:06
 	finished base code for user homepage
 	added routes for events and messages
