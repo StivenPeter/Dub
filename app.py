@@ -178,6 +178,30 @@ def userinfo():
     personalInfo.addEntry(username, interestList, newDict['bigthing'], newDict['zip'], newDict['gender'], newDict['age'], newDict['gendpref'], newDict['religionpref'], newDict['myreligion'], newDict['job'], newDict['politicalpref'], hobbies, newDict['mypolitics'], newDict['agediff'])
     return render_template("upload.html")
     #return redirect(url_for("userHomePage"))
+	
+app.route("/change/", methods=["POST"])
+def change():
+    personalInfoStuff=request.form
+    for key in personalInfoStuff:
+        if (isAHobby(key) or isAnInterest(key)):
+            if isAHobby(key):
+                newDict['hobbies'].append(key)
+            if isAnInterest(key):
+                newDict['interests'].append(key)
+        else:
+            newDict[key] = personalInfoStuff[key]
+    username = session['user']
+    interestList=newDict['interests']
+    hobbies = newDict['hobbies']
+    personalInfo.changeSettings(username, interestList, newDict['bigthing'], newDict['zip'], newDict['gender'], newDict['age'], newDict['gendpref'], newDict['religionpref'], newDict['myreligion'], newDict['job'], newDict['politicalpref'], hobbies, newDict['mypolitics'], newDict['agediff'])
+    if 'upload' not in request.files
+        return redirect(url_for("userHomePage"))
+    else:
+        filename = upload_file(request.files)
+        changeProfile(username, filename)
+        return redirect(url_for("userHomePage"))
+    
+
 
 
 @app.route("/about/", methods=["POST"])
