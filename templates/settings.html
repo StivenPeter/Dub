@@ -26,9 +26,6 @@
 	}
 {% endblock %}
 
-
-
-
 {% block body %}
 
 
@@ -40,11 +37,11 @@
   	</div>
  
   		<!-- Age, Age looking for, Gender, gender looking for -->
-  		<form action="/updatesettings/" method="POST">
+  		<form action="/updatesettings/" method="POST" enctype= "multipart/form-data">
   			<div class="card-section">
   				<center>
   				<label for="exampleFileUpload" class="button">Upload File</label>
-				<input type="file" id="exampleFileUpload"  name="upload" class="show-for-sr">
+				<input type="file" id="exampleFileUpload"  name="upload"  class="show-for-sr">
 			</center>
 			</div>
 			<br> <br>
