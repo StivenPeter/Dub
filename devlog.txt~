@@ -45,9 +45,4 @@ ogal7 -- 2017-01-19 2:06
 	finished base code for user homepage
 	added routes for events and messages
 	
-ogal7 -- 2017-01-19 22:07
-      	finished date bar on user homepage
-	finished gendermatching functionality in matching algorithm
-	started the rest of gendermatching algo
-
       

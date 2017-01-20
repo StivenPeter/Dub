@@ -55,6 +55,7 @@ def aujourdhui():
     month = numberToMonth(datelist[1])
     day = str(datelist[2])
     retstr = month + " " + day + ", " + year
+    return retstr
     #for item in time.localtime():
         
 
@@ -91,10 +92,9 @@ def isAHobby(key):
 @app.route("/")
 @app.route("/home/")
 def main():
-    datestring = aujourdhui()
     if 'user' in session: 
         return redirect(url_for("userHomePage"))
-    return render_template("login.html", message = message, date=datestring)
+    return render_template("login.html", message = message)
 
 # def auth():
 #     #users2 (fname TEXT, lname TEXT, username TEXT, hashedpassword TEXT);
@@ -166,7 +166,9 @@ def logout():
 
 @app.route("/userHomePage/")
 def userHomePage():
-    return render_template("userHomePage.html")
+    datestring = aujourdhui()
+    print datestring
+    return render_template("userHomePage.html", date=datestring)
 
 @app.route("/register/")
 def register():
