@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 import urllib2, os
 import hashlib
 import time
-from utils import authorize, personalInfo
+from utils import authorize, personalInfo, matchme
 #from utils import users
 from werkzeug.utils import secure_filename
 
@@ -259,7 +259,8 @@ def messages():
 
 @app.route("/matches/", methods=["POST"])
 def matches():
-    return render_template("matches.html")
+    matchList = matchme.findMatches(session['user'])
+    return render_template("matches.html", matches = matchList)
 
 @app.route("/events/", methods=["POST"])
 def events():

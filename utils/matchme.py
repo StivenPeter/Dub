@@ -70,7 +70,7 @@ def findMyPreferences(username):
 # dic['bigthing'] = item[4]
 # dic['zipcode'] = item[5]
 # dic['gender'] = item[6]
-#dic [age ] =7
+#  dic [age ] =7
 # dic['gendpref'] = item[8]
 # dic['religionpref'] = item[9]
 # dic['myreligion'] = item[10]
@@ -120,6 +120,34 @@ def genderMatching(gender1, genderpref1, gender2, genderpref2):
 			return (genderpref1 == gender2 and genderpref2 == gender1)
 
 
+def politics(polview1, polpref1, polview2, polpref2):
+	#if either person gives a shit:
+	if ( int(polpref1) >= 1 and int(polpref1) <= 5 ) or ( int(polpref2) >= 1 and int(polpref2) <= 5 ):
+		if (polview1 == polview2):
+			return True
+		else:
+			return False
+	else:
+		return True
+
+def religion(religion1, religionpref1, religion2, religionpref2):
+	#if either person gives a shit:
+	if ( int(religionpref1) >= 1 and int(religionpref1) <= 5 ) or ( int(religionpref2) >= 1 and int(religionpref2) <= 5 ):
+		if (religion1 == religion2):
+			return True
+		else:
+			return False
+	else:
+		return True
+
+def anythingInCommon(list1, list2):
+	for item in list1:
+		if item in list2:
+			return True
+	return False
+
+
+
 
 def findMatches(username):
 	f = "data/data.db"
@@ -129,19 +157,26 @@ def findMatches(username):
 	matches = []
 	command = "SELECT * from users WHERE username !='%s'"%(username)
 	x = og.execute(command)
-	#for item in x:
+	for item in x:
 	##~~RED FLAG REGION~~##	
 		##GENDER PREFERENCES
 		if genderMatching(item[6], item[8], UD['gender'], UD['gendpref']):
-		##AGE DIFFERENCE
-			if ( int(UD['age']) + int(UD['agediff']) >= int(item[7]) and int(UD['age']) - int(UD['agediff']) =< int(item[7])):
-				
+	##agE DIFFERENCE
+			if ( int(UD['age']) + int(UD['agediff']) >= int(item[7]) and int(UD['age']) - int(UD['agediff']) <= int(item[7])):			
 		##POLTICS
-
+				if politics(UD['mypolitics'], UD['politicalpref'], item[16], item[12]):			
 		##RELIGION
+					if religion(UD['myreligion'], UD['religionpref'], item[10], item[9]):
+		##~~Yellow flag region - must have SoMeThInG in common!~~##
+						newlis = UD['interests'].append(UD['hobbies'])
+						if anythingInCommon(newlis, [item[1], item[2], item[3], item[13], item[14], item[15]]):
+							matches.append[item[0]]
+	print "hi"
+	if len(matches) == 0:
+		return "No Matches Found!"
+	else:
+		return matches
 
-
-	##~~Yellow flag region - must have SoMeThInG in common!~~##
 
 
 #testing
