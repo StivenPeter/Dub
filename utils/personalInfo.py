@@ -33,7 +33,7 @@ def addprofile(username, filename):
 	sp = db.cursor()
 	path =  path = "static/pfp/" + filename
 	print "path:  " + path
-	insert = "UPDATE users SET pfp='%s' WHERE username='%s'"%(path, username)
+	insert = "UPDATE users SET pfp='%s' WHERE username= '%s'"%(path, username)
 	sp.execute(insert)
 	db.commit()
 	db.close()
@@ -56,22 +56,25 @@ def deleteProfile(username):
 	f = "data/data.db"
 	db = sqlite3.connect(f)
 	sp = db.cursor()
-	getprev = "SELECT pfp FROM users WHERE username='%s'" (username)
+	getprev = "SELECT pfp FROM users WHERE username='%s'"%(username)
 	prevfile = sp.execute(getprev)
-	os.remove(prevfile)
+	db.commit
 	db.close()
+	if (getprev != 'static/pfp/default.png'):
+		os.remove(prevfile)
+
 
 def changeSettings(username, interestList, bigthing, zipcode, gender, age, gendpref, religionpref, myreligion, job, politicalpref, hobbies, mypolitics, agediff):
 	f = "data/data.db"
 	db = sqlite3.connect(f)
-	og = db.cursor()
+	sp = db.cursor()
 	interest1 = interestList[0]
 	interest2 = interestList[1]
 	interest3 = interestList[2]
 	hobby1 = hobbies[0]
 	hobby2 = hobbies[1]
 	hobby3 = hobbies[2]
-	insert = " UPDATE users SET interest1 = '%s', interest2='%s', interest3 = '%s', bigthing = '%s', zipcode = '%s', gender = '%s', age = '%s', genderpref = '%s', religionpref = '%s', myreligion = '%s', job = '%s', politicalpref = '%s', hobby1 = '%s', hobby2 = '%s', hobby3 = '%s', mypolitics = '%s'agediff = '%s' WHERE username='%s' " (interest1, interest2, interest3, bigthing, zipcode, gender, age, gendpref, religionpref, myreligion, job, politicalpref, hobby1, hobby2, hobby3, mypolitics, agediff, username)
+	insert = " UPDATE users SET interest1 = '%s', interest2='%s', interest3 = '%s', bigthing = '%s', zipcode = '%s', gender = '%s', age = '%s', gendpref = '%s', religionpref = '%s', myreligion = '%s', job = '%s', politicalpref = '%s', hobby1 = '%s', hobby2 = '%s', hobby3 = '%s', mypolitics = '%s', agediff = '%s' WHERE username = '%s'"%(interest1, interest2, interest3, bigthing, zipcode, gender, age, gendpref, religionpref, myreligion, job, politicalpref, hobby1, hobby2, hobby3, mypolitics, agediff, username)
 	sp.execute(insert)
 	db.commit()
 	db.close()
