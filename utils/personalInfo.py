@@ -27,6 +27,17 @@ def addEntry(username, interestList, bigthing, zipcode, gender, age, gendpref, r
 	return True
 
 
+def getRouteForPfp(username):
+	f = "data/data.db"
+	db = sqlite3.connect(f)
+	og = db.cursor()
+	command = "SELECT pfp FROM users WHERE username='%s'"%(username)
+	t = og.execute(command)
+	for item in t:
+		returnRoute= item
+	return returnRoute
+
+
 def addprofile(username, filename):
 	f = "data/data.db"
 	db = sqlite3.connect(f)
@@ -81,6 +92,6 @@ def changeSettings(username, interestList, bigthing, zipcode, gender, age, gendp
 	return True
 
 
-
+getRouteForPfp('L')
 
 

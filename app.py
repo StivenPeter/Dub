@@ -167,9 +167,11 @@ def logout():
 @app.route("/userHomePage/")
 def userHomePage():
 	datestring = aujourdhui()
-	print datestring
-	print ''
-	return render_template("userHomePage.html", date=datestring)
+	#print datestring
+	#print ''
+	pfp = "../"+personalInfo.getRouteForPfp(session['user'])[0]
+	print pfp
+	return render_template("userHomePage.html", date=datestring, pfp = pfp)
 
 @app.route("/register/")
 def register():

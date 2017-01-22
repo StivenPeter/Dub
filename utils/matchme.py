@@ -147,6 +147,16 @@ def anythingInCommon(list1, list2):
 	return False
 
 
+def conflicts(bigthing1, bigthing2):
+	if ( bigthing1 == 'sex' and bigthing2 == 'emo' ):
+		return False
+	if ( bigthing1== 'spont' and bigthing2 == 'stable' ):
+		return False
+	if ( bigthing1=='study' and bigthing2== 'sex' ):
+		return False
+	else:
+		return True
+
 
 
 def findMatches(username):
@@ -161,17 +171,19 @@ def findMatches(username):
 	##~~RED FLAG REGION~~##	
 		##GENDER PREFERENCES
 		if genderMatching(item[6], item[8], UD['gender'], UD['gendpref']):
-	##agE DIFFERENCE
+			##agE DIFFERENCE
 			if ( int(UD['age']) + int(UD['agediff']) >= int(item[7]) and int(UD['age']) - int(UD['agediff']) <= int(item[7])):			
-		##POLTICS
+				##POLTICS
 				if politics(UD['mypolitics'], UD['politicalpref'], item[16], item[12]):			
-		##RELIGION
+					##RELIGION
 					if religion(UD['myreligion'], UD['religionpref'], item[10], item[9]):
-		##~~Yellow flag region - must have SoMeThInG in common!~~##
+						##~~Yellow flag region - must have SoMeThInG in common!~~##
 						newlis = UD['interests'].append(UD['hobbies'])
 						if anythingInCommon(newlis, [item[1], item[2], item[3], item[13], item[14], item[15]]):
-							matches.append[item[0]]
-	print "hi"
+							#dont want a sex freak w someone lookin for a deep connection
+							if (conflicts(item[4], UD['bigthing'])):
+								matches.append[item[0]]
+	#print "hi"
 	if len(matches) == 0:
 		return "No Matches Found!"
 	else:

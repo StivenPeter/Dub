@@ -52,3 +52,9 @@ ogal7 -- 2017-01-19 22:07
 
 stivenP — 2017-01-21 20:00
 	Finished changed settings 
+
+ogal7 -- 2017-01-22 17:31
+	homepages display user profile pics
+	changed font
+	finished matching algorithm
+
