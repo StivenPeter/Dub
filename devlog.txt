@@ -50,4 +50,5 @@ ogal7 -- 2017-01-19 22:07
 	finished gendermatching functionality in matching algorithm
 	started the rest of gendermatching algo
 
-      
+stivenP — 2017-01-21 20:00
+	Finished changed settings 
