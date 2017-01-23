@@ -1,4 +1,4 @@
-stivenP -- 2017-01-09 18:00
+﻿stivenP -- 2017-01-09 18:00
       Added basic paths to app.py 
       Added functions necessary to upload pics in app.py
 
@@ -58,3 +58,6 @@ ogal7 -- 2017-01-22 17:31
 	changed font
 	finished matching algorithm
 
+skabir8 -- 2017-01-22 22:18
+	created yelp api fxns
+	returns list of list which contains name,address,rating,image
