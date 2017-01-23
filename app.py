@@ -257,7 +257,22 @@ def about():
 
 @app.route("/settings/")
 def settings():
-	return render_template("settings.html")
+        print personalInfo.getData(session['user'])
+        payload={}
+        payload['intrest']=personalInfo.getIntrestList(session['user'])
+        payload['hobby']=personalInfo.getHobbyList(session['user'])
+        payload['politic']=personalInfo.getPolitic(session['user'])
+        payload['big']=personalInfo.getBig(session['user'])
+        payload['zip']=personalInfo.getZip(session['user'])
+        payload['gender']=personalInfo.getGender(session['user'])
+        payload['attract']=personalInfo.getIntrest(session['user'])
+        payload['age']=personalInfo.getAge(session['user'])
+        payload['agedif']=personalInfo.getAgeDif(session['user'])
+        payload['religion']=personalInfo.getReligion(session['user'])
+        payload['job']=personalInfo.getJob(session['user'])
+        payload['religionpartner']=personalInfo.getReligiousPartner(session['user'])
+        payload['politicpartner']=personalInfo.getPoliticPartner(session['user'])
+	return render_template("settings.html", data=payload)
 
 
 @app.route("/messages/", methods=["POST"])
