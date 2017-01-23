@@ -372,6 +372,107 @@ console.log('lo')
 				</div>
   			</div>
 
+			<script>
+			var mygender = document.getElementsByClassName("gender");
+			var genderpref = document.getElementsByClassName("gendpref");
+			var myreligion = document.getElementsByClassName("myreligion");
+			var religionpref = document.getElementsByClassName("religionpref");
+			var mypolitics = document.getElementsByClassName("mypolitics");
+			var politicalpref = document.getElementsByClassName("politicalpref");
+			var job = document.getElementsByClassName("job");
+			var interests = document.getElementsByClassName("interests");
+			var hobby = document.getElementsByClassName("hobby");
+			var bigthing = document.getElementsByClassName("bigthing");
+			var zip = document.getElementsByClassName("zip");
+			
+			for(var i=0; i<genderpref.length; i++) {
+				if (genderpref[i].value=="{{data['attract']}}"){
+					genderpref[i].checked = true;	
+				}
+			}
+			
+			for(var i=0; i<hobby.length; i++) {
+				{% for items in data['hobby'] %}
+				console.log(hobby[i])
+				console.log('{{items}}')
+				if (hobby[i].name=='{{items}}'){
+					hobby[i].checked = true;
+				}
+				 {% endfor %}
+
+				
+				
+			}
+			
+			for(var i=0; i<interests.length; i++) {
+				{% for items in data['intrest'] %}
+				console.log(interests[i])
+				console.log('{{items}}')
+				if (interests[i].name=='{{items}}'){
+					interests[i].checked = true;
+				}
+				 {% endfor %}
+
+				
+				
+			}
+			
+			
+			
+			for(var i=0; i<mypolitics.length; i++) {
+				if (mypolitics[i].value=="{{data['politic']}}"){
+					mypolitics[i].checked = true;	
+				}
+			}
+			
+			for(var i=0; i<bigthing.length; i++) {
+				if (bigthing[i].value=="{{data['big']}}"){
+					bigthing[i].checked = true;	
+				}
+			}
+			
+			for(var i=0; i<mygender.length; i++) {
+				if (mygender[i].value=="{{data['gender']}}"){
+					mygender[i].checked = true;	
+				}
+			}
+			
+			for(var i=0; i<zip.length; i++) {
+				if (zip[i].value=="{{data['zip']}}"){
+					zip[i].checked = true;	
+				}
+			}
+			
+			for(var i=0; i<myreligion.length; i++) {
+				if (myreligion[i].value=="{{data['religion']}}"){
+					myreligion[i].checked = true;	
+				}
+			}
+			
+			for(var i=0; i<religionpref.length; i++) {
+				if (religionpref[i].value=="{{data['religionpartner']}}"){
+					religionpref[i].checked = true;	
+				}
+			}
+			
+			for(var i=0; i<politicalpref.length; i++) {
+				if (politicalpref[i].value=="{{data['politicpartner']}}"){
+					politicalpref[i].checked = true;	
+				}
+			}
+			
+			for(var i=0; i<job.length; i++) {
+				if (job[i].value=="{{data['job']}}"){
+					job[i].checked = true;	
+				}
+			}
+
+			
+			
+			</script>
+
+
+
   			</div>
   			<center>
     		<button type="Submit" class="button"> Change </button>

@@ -69,4 +69,5 @@ skabir8 -- 2017-01-23 01:33
 	Fixed issues with settings templates
 	Created fxns to render data payload in app.py
 	Made rest of fxns to get data in personainfo file
+	Added in javascript to render settings with prexisting data
 
