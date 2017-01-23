@@ -89,6 +89,15 @@ def getJob(username):
         userData=getData(username)
         return userData[11]
 
+def getReligiousPartner(username):
+        userData=getData(username)
+        return userData[9]
+
+def getPoliticPartner(username):
+        userData=getData(username)
+        return userData[12]
+        
+
 
 
 def getRouteForPfp(username):
