@@ -51,7 +51,7 @@ console.log('lo')
   			<div class="row">
   				<div class="large-6 columns">
   					<label>How Old Are You?
-  						<select name="age">
+  						<select name="age" class='age'>
     						<option value="16">16</option>
     						<option value="17">17</option>
     						<option value="18">18</option>
@@ -92,7 +92,7 @@ console.log('lo')
 				</div>
 				<div class="large-6 columns">
   					<label>What is the <i> Maximum </i> age difference you would prefer between you and your match?
-  						<select name="agediff">
+  						<select name="agediff" class='agedif'>
   							<option value="0">No Preference</option>
     						<option value="1">1 year</option>
     						<option value="2">2 years</option>
@@ -383,18 +383,36 @@ console.log('lo')
 			var interests = document.getElementsByClassName("interests");
 			var hobby = document.getElementsByClassName("hobby");
 			var bigthing = document.getElementsByClassName("bigthing");
-			var zip = document.getElementsByClassName("zip");
+			var zip = document.getElementsByClassName("zip").zip;
+			var age = document.getElementsByClassName("age").age;
+			var agedif = document.getElementsByClassName("agedif").agediff;
 			
+			
+
 			for(var i=0; i<genderpref.length; i++) {
 				if (genderpref[i].value=="{{data['attract']}}"){
 					genderpref[i].checked = true;	
 				}
 			}
 			
+			for(var i=0; i<age.length; i++) {
+			
+				if (age[i].value=="{{data['age']}}"){
+					age.value = "{{data['age']}}";	
+				}
+			}
+			
+			for(var i=0; i<agedif.length; i++) {
+			
+				if (agedif[i].value=="{{data['agedif']}}"){
+					agedif.value = "{{data['agedif']}}";	
+				}
+			}
+			
+			
+			
 			for(var i=0; i<hobby.length; i++) {
 				{% for items in data['hobby'] %}
-				console.log(hobby[i])
-				console.log('{{items}}')
 				if (hobby[i].name=='{{items}}'){
 					hobby[i].checked = true;
 				}
@@ -406,8 +424,6 @@ console.log('lo')
 			
 			for(var i=0; i<interests.length; i++) {
 				{% for items in data['intrest'] %}
-				console.log(interests[i])
-				console.log('{{items}}')
 				if (interests[i].name=='{{items}}'){
 					interests[i].checked = true;
 				}
@@ -431,6 +447,13 @@ console.log('lo')
 				}
 			}
 			
+			
+			for(var i=0; i<job.length; i++) {
+				if (job[i].value=="{{data['job']}}"){
+					job[i].checked = true;	
+				}
+			}
+			
 			for(var i=0; i<mygender.length; i++) {
 				if (mygender[i].value=="{{data['gender']}}"){
 					mygender[i].checked = true;	
@@ -439,7 +462,7 @@ console.log('lo')
 			
 			for(var i=0; i<zip.length; i++) {
 				if (zip[i].value=="{{data['zip']}}"){
-					zip[i].checked = true;	
+					zip.value = "{{data['zip']}}";	
 				}
 			}
 			
@@ -461,11 +484,9 @@ console.log('lo')
 				}
 			}
 			
-			for(var i=0; i<job.length; i++) {
-				if (job[i].value=="{{data['job']}}"){
-					job[i].checked = true;	
-				}
-			}
+			zip.value={{data['zip']}}
+			
+			
 
 			
 			
