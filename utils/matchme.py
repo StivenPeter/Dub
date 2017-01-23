@@ -81,6 +81,7 @@ def findMyPreferences(username):
 # dic['agediff'] = item[17]
 
 def genderMatching(gender1, genderpref1, gender2, genderpref2):
+	print "hi from gender matching"
 	if gender1 == 'nonconform' or gender2=='nonconform':
 		if gender1=='nonconform':
 			if genderpref2 == 'nopref':
@@ -168,21 +169,31 @@ def findMatches(username):
 	command = "SELECT * from users WHERE username !='%s'"%(username)
 	x = og.execute(command)
 	for item in x:
+		#print "item " + str(item[0])
+		#print item[6]
+		#print item[8]
+		#print UD['gender']
+		#print UD['gendpref']
 	##~~RED FLAG REGION~~##	
 		##GENDER PREFERENCES
-		if genderMatching(item[6], item[8], UD['gender'], UD['gendpref']):
+		print genderMatching(str(item[6]), str(item[8]), str(UD['gender']), str(UD['gendpref']))
+		if genderMatching(str(item[6]), str(item[8]), str(UD['gender']), str(UD['gendpref'])):
+			print "passed gender"
 			##agE DIFFERENCE
-			if ( int(UD['age']) + int(UD['agediff']) >= int(item[7]) and int(UD['age']) - int(UD['agediff']) <= int(item[7])):			
+			if ( int(UD['age']) + int(UD['agediff']) >= int(item[7]) and int(UD['age']) - int(UD['agediff']) <= int(item[7])):		
+				print "passed age"	
 				##POLTICS
 				if politics(UD['mypolitics'], UD['politicalpref'], item[16], item[12]):			
 					##RELIGION
 					if religion(UD['myreligion'], UD['religionpref'], item[10], item[9]):
 						##~~Yellow flag region - must have SoMeThInG in common!~~##
-						newlis = UD['interests'].append(UD['hobbies'])
+						newlis = [UD['interests']]
+						newlis.extend(UD['hobbies'])
+						print newlis
 						if anythingInCommon(newlis, [item[1], item[2], item[3], item[13], item[14], item[15]]):
 							#dont want a sex freak w someone lookin for a deep connection
 							if (conflicts(item[4], UD['bigthing'])):
-								matches.append[item[0]]
+								matches.append(item[0])
 	#print "hi"
 	if len(matches) == 0:
 		return "No Matches Found!"
@@ -195,3 +206,14 @@ def findMatches(username):
 #findMyPreferences("statefarm")
 #findMatches("statefarm")
 #print genderMatching('woman', 'woman', 'woman', 'man')
+#print genderMatching('woman', 'woman', 'woman', 'man')
+#print genderMatching('woman', 'man', 'man', 'man')
+#print genderMatching('woman', 'man', 'man', 'woman')
+#print genderMatching('woman', 'woman', 'woman', 'man')
+
+
+
+
+
+
+
