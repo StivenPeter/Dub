@@ -71,4 +71,7 @@ skabir8 -- 2017-01-23 01:33
 	Made rest of fxns to get data in personainfo file
 	Added in javascript to render settings with prexisting data
 	Added rest of javascript on settings. Everything should render as is
+ogal7/stivenP -- 2017-01-23 14:47
+	debugged matches
+	
 
