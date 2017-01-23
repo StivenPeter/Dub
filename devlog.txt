@@ -61,3 +61,6 @@ ogal7 -- 2017-01-22 17:31
 skabir8 -- 2017-01-22 22:18
 	created yelp api fxns
 	returns list of list which contains name,address,rating,image
+
+skabir8 -- 2017-01-22 22:54
+	Added database fxn's for getting each item for a user

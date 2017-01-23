@@ -26,6 +26,70 @@ def addEntry(username, interestList, bigthing, zipcode, gender, age, gendpref, r
 	db.close()
 	return True
 
+def getData(username):
+	f = "data/data.db"
+	db = sqlite3.connect(f)
+	c = db.cursor()
+	checkUser = "SELECT * FROM users WHERE username==?"
+	c.execute(checkUser, (username,))
+	r = c.fetchone()
+	db.commit()
+	db.close()
+	return r
+
+def getIntrestList(username):
+        userData=getData(username)
+        data=[]
+        data.append(userData[1])
+        data.append(userData[2])
+        data.append(userData[3])
+        return data
+
+def getHobbyList(username):
+        userData=getData(username)
+        data=[]
+        data.append(userData[13])
+        data.append(userData[14])
+        data.append(userData[15])
+        return data
+
+def getPolitic(username):
+        userData=getData(username)
+        return userData[16]
+
+def getBig(username):
+        userData=getData(username)
+        return userData[4]
+
+def getZip(username):
+        userData=getData(username)
+        return userData[5]
+
+def getGender(username):
+        userData=getData(username)
+        return userData[6]
+
+def getIntrest(username):
+        userData=getData(username)
+        return userData[8]
+
+def getAge(username):
+        userData=getData(username)
+        return userData[7]
+
+def getAgeDif(username):
+        userData=getData(username)
+        return userData[17]
+
+def getReligion(username):
+        userData=getData(username)
+        return userData[10]
+
+def getJob(username):
+        userData=getData(username)
+        return userData[11]
+
+
 
 def getRouteForPfp(username):
 	f = "data/data.db"
@@ -92,6 +156,8 @@ def changeSettings(username, interestList, bigthing, zipcode, gender, age, gendp
 	return True
 
 
-getRouteForPfp('L')
+#getRouteForPfp('L')
+#print getIntrestList('billy123')
+
 
 
