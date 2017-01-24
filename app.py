@@ -279,10 +279,11 @@ def messages():
 @app.route("/matches/", methods=["POST"])
 def matches():
 	matchList = matchme.findMatches(session['user'])
-	matchInfo = {}
+	if matchList == 'No Matches Found!': 
+		return render_template("matches.html", message= matchList)
 	for person in matchList: 
 		matchInfo[person] = personalInfo.getCardInfo(person)
-	return render_template("matches.html", matches = matchList, matchInfo = matchInfo)
+	return render_template("matches.html", matchInfo = matchInfo)
 
 @app.route("/events/", methods=["POST"])
 def events():
