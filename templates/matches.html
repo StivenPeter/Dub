@@ -11,7 +11,8 @@
 {% block style %}
 	.card {
 		margin:auto;
-		margin-top:2%;
+		margin-top:5%;
+		margin-left:5%;
 		radius:10px 10px 10px 10px;
 	}
 	.card-divider {
@@ -28,11 +29,35 @@
 	img {
 		border-radius: 100px;
 	}
+	 .profile-card img {
+    width: 8rem;
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #888888; 
+    position: relative;
+    right: 2em;   }
+
 {% endblock %}
 
 
 {% block body %}
 
-{{matches}}
+{{matches }}
+{% for person in matchInfo %}
+	<div class = "row">
+	<div class = "card">
+	<h1 align="center"> {{person}} </h1>
+	<div class  = "medium-5 columns">
+	<div class= "profile-card"> 
+		<img src= " {{ matchInfo[person][-1]}} ">
+	</div>
+	</div>
+	<div class = "medium-7 columns">
+	</div>
+	</div>
+	</div>
+{% endfor %}
 
 {% endblock %}

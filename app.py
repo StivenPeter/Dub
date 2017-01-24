@@ -283,7 +283,10 @@ def messages():
 @app.route("/matches/", methods=["POST"])
 def matches():
 	matchList = matchme.findMatches(session['user'])
-	return render_template("matches.html", matches = matchList)
+	matchInfo = {}
+	for person in matchList: 
+		matchInfo[person] = personalInfo.getCardInfo(person)
+	return render_template("matches.html", matches = matchList, matchInfo = matchInfo)
 
 @app.route("/events/", methods=["POST"])
 def events():

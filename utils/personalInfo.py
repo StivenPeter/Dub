@@ -110,6 +110,18 @@ def getRouteForPfp(username):
 		returnRoute= item
 	return returnRoute
 
+def getCardInfo(username):
+	info = []
+	info.append(getAge(username))
+	info.append(getGender(username))
+	info.append(getPolitic(username))
+	info.append(getBig(username))
+	info.append(getReligion(username))
+	info.append(getIntrestList(username))
+	info.append(getHobbyList(username))
+	path = "../" + getRouteForPfp(username)[0]
+	info.append(path)
+	return info
 
 def addprofile(username, filename):
 	f = "data/data.db"
