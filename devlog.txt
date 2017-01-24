@@ -76,4 +76,5 @@ ogal7/stivenP -- 2017-01-23 14:47
 stivenP — 2017-01-23 22:00
 	-Added Functions to PersonalInfo
 	-Generated matches.html
+	-Debugged Settings
 

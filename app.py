@@ -109,7 +109,6 @@ def main():
 
 @app.route("/profilepic/", methods=["POST"])
 def pfp(): 
-	print request.files
 	filename = upload_file(request.files)
 	personalInfo.addprofile(session['user'],filename)
 	return redirect(url_for("userHomePage"))
@@ -167,10 +166,7 @@ def logout():
 @app.route("/userHomePage/")
 def userHomePage():
 	datestring = aujourdhui()
-	#print datestring
-	#print ''
 	pfp = "../"+personalInfo.getRouteForPfp(session['user'])[0]
-	print pfp
 	return render_template("userHomePage.html", date=datestring, pfp = pfp)
 
 @app.route("/register/")
@@ -241,10 +237,10 @@ def change():
 	hobbies = newDict['hobbies']
 	if (full):
 		personalInfo.changeSettings(username, interestList, newDict['bigthing'], newDict['zip'], newDict['gender'], newDict['age'], newDict['gendpref'], newDict['religionpref'], newDict['myreligion'], newDict['job'], newDict['politicalpref'], hobbies, newDict['mypolitics'], newDict['agediff'])
-	print type(request.files['upload'])
-	filename = upload_file(request.files)
-	print filename
-	personalInfo.changeProfile(username, filename)
+	file = request.files['upload']
+	filename = "default.png"
+	if file.filename != '':
+		personalInfo.changeProfile(username, filename)
 	return redirect(url_for("userHomePage"))
 
 	

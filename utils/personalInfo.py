@@ -129,7 +129,6 @@ def addprofile(username, filename):
 	db = sqlite3.connect(f)
 	sp = db.cursor()
 	path =  path = "static/pfp/" + filename
-	print "path:  " + path
 	insert = "UPDATE users SET pfp='%s' WHERE username= '%s'"%(path, username)
 	sp.execute(insert)
 	db.commit()
@@ -155,10 +154,12 @@ def deleteProfile(username):
 	sp = db.cursor()
 	getprev = "SELECT pfp FROM users WHERE username='%s'"%(username)
 	prevfile = sp.execute(getprev)
-	db.commit
+	for item in prevfile:
+		prevfilepath = item
+	db.commit()
 	db.close()
 	if (getprev != 'static/pfp/default.png'):
-		os.remove(prevfile)
+		os.remove(prevfilepath)
 
 
 def changeSettings(username, interestList, bigthing, zipcode, gender, age, gendpref, religionpref, myreligion, job, politicalpref, hobbies, mypolitics, agediff):
