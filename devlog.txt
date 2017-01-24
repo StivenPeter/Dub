@@ -1,4 +1,4 @@
-﻿stivenP -- 2017-01-09 18:00
+stivenP -- 2017-01-09 18:00
       Added basic paths to app.py 
       Added functions necessary to upload pics in app.py
 
@@ -73,5 +73,7 @@ skabir8 -- 2017-01-23 01:33
 	Added rest of javascript on settings. Everything should render as is
 ogal7/stivenP -- 2017-01-23 14:47
 	debugged matches
-	
+stivenP — 2017-01-23 22:00
+	-Added Functions to PersonalInfo
+	-Generated matches.html
 

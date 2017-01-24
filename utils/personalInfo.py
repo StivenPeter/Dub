@@ -119,6 +119,7 @@ def getCardInfo(username):
 	info.append(getReligion(username))
 	info.append(getIntrestList(username))
 	info.append(getHobbyList(username))
+	info.append(getJob(username))
 	path = "../" + getRouteForPfp(username)[0]
 	info.append(path)
 	return info
