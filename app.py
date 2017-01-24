@@ -279,6 +279,7 @@ def messages():
 @app.route("/matches/", methods=["POST"])
 def matches():
 	matchList = matchme.findMatches(session['user'])
+	matchInfo = {}
 	if matchList == 'No Matches Found!': 
 		return render_template("matches.html", message= matchList)
 	for person in matchList: 
