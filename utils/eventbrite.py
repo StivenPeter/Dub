@@ -6,7 +6,7 @@ import urllib2
 def getEvents(keyword):
         keyword='&q='+keyword
         location='&location.address=new+york'
-        url = "https://www.eventbriteapi.com/v3/events/search/?token=KEY"+keyword+location
+        url = "https://www.eventbriteapi.com/v3/events/search/?token=AWRWNEI6QLTQP7U7XO5M"+keyword+location
         response = urllib2.urlopen(url)
         eventdata = response.read()
         dic = json.loads(eventdata)
@@ -20,7 +20,6 @@ def getEvents(keyword):
             eventlist.append(eventdict)
         print eventlist[0]['url']
         print eventlist[0]['name']
-        print eventlist[0]['description']
         return eventlist
         
             

@@ -2,7 +2,8 @@ from flask import Flask, render_template, request, session, redirect, url_for
 import urllib2, os
 import hashlib
 import time
-from utils import authorize, personalInfo, matchme, messageform
+import requests_oauth2
+from utils import authorize, personalInfo, matchme, messageform, yelp, eventbrite
 #from utils import users
 from werkzeug.datastructures import ImmutableMultiDict
 from werkzeug.utils import secure_filename
