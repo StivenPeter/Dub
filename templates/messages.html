@@ -40,7 +40,7 @@
         <div class= "12-large columns">
 
                     <div class="form-group row">
-                        <form class="form-signin" action="/messages/send_messages" method="POST">
+                        <form class="form-signin" action="/send_message/" method="POST">
                         <label for="recipient" style="font-weight:500; font-size:50px;" class="text-primary" >Send to (Username): 
                         <input type="text" id="recipient" name="recipient"  value= "{{ sendto }}"></label>
 
@@ -56,7 +56,7 @@
 	<div class="row">
     	<div class= "12-large columns">
                         <label style="font-weight:500; font-size:50px;" class="text-primary">Get my messages</label> 
-                        <form class="form-signin" action="/messages/get_message" method="POST">
+                        <form class="form-signin" action="/get_message/" method="POST">
                             
                             {% if message_output|length > 0 %}
                                 <table class="table">

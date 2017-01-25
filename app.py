@@ -284,7 +284,7 @@ def messages():
 	#print 'lorenz is here ', session['user']
 	return render_template("messages.html")
 
-@app.route("/messages/send_message", methods=['POST'])
+@app.route("/send_message/", methods=['POST'])
 def send_message():
     recipient = request.form.get('recipient')
     message = request.form.get('message')
@@ -296,7 +296,7 @@ def send_message():
     # save to db, add db values like datetime, status = SENT, sender= user
     return render_template("messages.html", msgresult=msgresult)
 
-@app.route("/messages/get_message", methods=['POST'])
+@app.route("/get_message/", methods=['POST'])
 def get_message():
 	user = session['user']
 	results = messageform.get_message(user)
