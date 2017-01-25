@@ -25,7 +25,7 @@ app.secret_key = "ajbddwhdajwwwwajfbsaiwfbsakqk72884bd"
 def numberToMonth(num):
 	if (num == 1):
 		return "January"
-	if (num == 2):print
+	if (num == 2):
 		return "February"
 	if (num == 3):
 		return "March"
@@ -297,7 +297,7 @@ def get_message():
  
 
 
-@app.route("/matches/", methods=["POST"])
+@app.route("/matches/", methods=["POST","GET"])
 def matches():
 	matchList = matchme.findMatches(session['user'])
 	matchInfo = {}

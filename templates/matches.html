@@ -12,6 +12,7 @@
 	.card {
 		margin:auto;
 		margin-top:5%;
+		font-size:25px;
 		margin-left:5%;
 		radius:10px 10px 10px 10px;
 	}
@@ -29,14 +30,14 @@
 	img {
 		border-radius: 100px;
 	}
-	 .profile-card img {
-    width: 8rem;
-    display: block;
-    margin: 1rem auto;
-    text-align: center;
-    border-radius: 50%;
-    box-shadow: 2px 2px 5px #888888; 
-  }
+	.profile-card img {
+    	width: 8rem;
+    	display: block;
+    	margin: 1rem auto;
+    	text-align: center;
+    	border-radius: 50%;
+    	box-shadow: 2px 2px 5px #888888; 
+  	}
 {% endblock %}
 
 
@@ -50,7 +51,7 @@
 	<div class = "row">
 	<div class= "card-section">
 	<div class = "card">
-	<h1 align="center"> {{person}} </h1>
+	<h1 align="center"> {{matchInfo[person][0]}} </h1>
 	<div class  = "medium-3 columns">
 	<div class= "profile-card"> 
 		<img src= " {{ matchInfo[person][-1]}} ">
@@ -59,26 +60,26 @@
 	<div class = "medium-9 columns">
 	<div class = "row">
 	<div class = "medium-5 columns">
-		<span>{{ matchInfo[person][0]}},{{matchInfo[person][1]}},{{ matchInfo[person][2]}}</span>
+		<span>{{ matchInfo[person][1]}} {{matchInfo[person][2]}}</span>
 	</div>
 	<div class = "medium-6 columns margin-left">
-		<span> Religion: {{ matchInfo[person][4]}}</span>
+		<span> {{ matchInfo[person][3]}} {{ matchInfo[person][5]}}</span>
 	</div>
 	</div>
 	<div class = "row">
 	<div class="medium-5 columns">
-		<span>Interests: {{ ",".join(matchInfo[person][5]) }}</span>
+		<span>Interests: {{ ",".join(matchInfo[person][6]) }}</span>
 	</div>
 	<div class= "medium-6 columns">
-	<span>Biggest Thing : {{ matchInfo[person][3]}}</span>
+	<span>Biggest Thing {{matchInfo[person][0]}} is looking for : {{ matchInfo[person][4]}}</span>
 	</div>
 	</div>
 	<div class = "row">
 	<div class = "medium-5 columns">
-		<span> Hobbies: {{ ",".join(matchInfo[person][6]) }} </span>
+		<span> Hobbies: {{ ",".join(matchInfo[person][7]) }} </span>
 	</div>
 	<div class = "medium-6 columns">
-	<span>Job:{{ matchInfo[person][7]}} </span>
+	<span>Job:{{ matchInfo[person][8]}} </span>
 	</div>
 	</div>
 	</div>
@@ -86,4 +87,4 @@
 	</div>
 {% endfor %}
 
-{% endblock %}
+{% endblock %}3
