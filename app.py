@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 import urllib2, os
 import hashlib
 import time
-from utils import authorize, personalInfo, matchme
+from utils import authorize, personalInfo, matchme, messageform
 #from utils import users
 from werkzeug.utils import secure_filename
 
@@ -25,7 +25,7 @@ app.secret_key = "ajbddwhdajwwwwajfbsaiwfbsakqk72884bd"
 def numberToMonth(num):
 	if (num == 1):
 		return "January"
-	if (num == 2):
+	if (num == 2):print
 		return "February"
 	if (num == 3):
 		return "March"
@@ -273,7 +273,28 @@ def settings():
 
 @app.route("/messages/", methods=["POST"])
 def messages():
+	#print 'lorenz is here ', session['user']
 	return render_template("messages.html")
+
+@app.route("/messages/send_message", methods=['POST'])
+def send_message():
+    recipient = request.form.get('recipient')
+    message = request.form.get('message')
+    user = session['user']
+    if messageform.insert_message(recipient, message, user):
+    	msgresult = 'Message Sent'
+    else:
+    	msgresult = 'Delivery Failure'
+    # save to db, add db values like datetime, status = SENT, sender= user
+    return render_template("messages.html", msgresult=msgresult)
+
+@app.route("/messages/get_message", methods=['POST'])
+def get_message():
+	user = session['user']
+	results = messageform.get_message(user)
+	#print 'results=', results
+	return render_template("messages.html", message_output=results)
+ 
 
 
 @app.route("/matches/", methods=["POST"])

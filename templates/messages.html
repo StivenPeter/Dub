@@ -53,14 +53,11 @@
                         </div>
                              <button type="submit" value="Send" name="send_message" class="btn btn-success id-submit">Send!</button>
                         </form>
+                        {{ msgresult }}
                         <br/> <br/> 
 
                         <label style="font-weight:500; font-size:50px;" class="text-primary">Get my messages</label> <br /> <br />
-                        <form class="form-signin" action="get_messages" method="POST">
-                        <select class="form-control" name="message_options">
-                               <option>All my messages</option>
-                               <option>New messages</option>
-                        </select>
+                        <form class="form-signin" action="get_message" method="POST">
                             <br/> <br/>
                             {% if message_output|length > 0 %}
                                 <table class="table">
@@ -74,8 +71,8 @@
                                 {% for val in message_output %}
                                 <tbody>
                                 <tr> <td> {{ val.sender }} </td>
-                                     <td> {{ val.message_date }} </td>
-                                     <td> {{ val.content }} </td>
+                                     <td> {{ val.messagedatetime }} </td>
+                                     <td> {{ val.body }} </td>
                                 </tr>
                                 </tbody>
                                 {% endfor %}
