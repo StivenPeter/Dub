@@ -88,6 +88,8 @@ def isAHobby(key):
 		return True
 	return False
 
+##################### ROUTES #######################
+
 
 @app.route("/")
 @app.route("/home/")
@@ -198,7 +200,7 @@ def form2():
 #function from personalinfo
 #def addEntry(username, interestList, bigthing, zipcode, gender, age, gendpref, religionpref,myreligion, job, politicalpref, hobbies, mypolitics, agediff):
 
-@app.route("/userinfo/", methods=["POST"])
+@app.route("/userinfo/", methods=["POST", "GET"])
 def userinfo():
 	personalInfoStuff=request.form
 	newDict={'interests':[], 'hobbies':[]}
@@ -213,6 +215,11 @@ def userinfo():
 	username = session['user']
 	interestList=newDict['interests']
 	hobbies = newDict['hobbies']
+	if len(interestList) != 3 or len(hobbies) != 3:
+		if len(message) == 0:
+			message.append(" ")
+			message[0] = "Please fill in all required boxes!"
+		return redirect(url_for("form2"))
 	personalInfo.addEntry(username, interestList, newDict['bigthing'], newDict['zip'], newDict['gender'], newDict['age'], newDict['gendpref'], newDict['religionpref'], newDict['myreligion'], newDict['job'], newDict['politicalpref'], hobbies, newDict['mypolitics'], newDict['agediff'])
 	return render_template("upload.html")
 	#return redirect(url_for("userHomePage"))
