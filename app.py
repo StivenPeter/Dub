@@ -2,8 +2,9 @@ from flask import Flask, render_template, request, session, redirect, url_for
 import urllib2, os
 import hashlib
 import time
-from utils import authorize, personalInfo, matchme, messageform, eventbrite, yelp
+from utils import authorize, personalInfo, matchme, messageform
 #from utils import users
+from werkzeug.datastructures import ImmutableMultiDict
 from werkzeug.utils import secure_filename
 
 #from flask_bootstrap import Bootstrap
@@ -301,7 +302,12 @@ def get_message():
 	results = messageform.get_message(user)
 	#print 'results=', results
 	return render_template("messages.html", message_output=results)
- 
+
+@app.route("/makemessage/", methods=["GET"])
+def makemessage():
+	p =  request.args
+	print p.getlist('enter')[0]
+	return render_template("messages.html", sendto = p.getlist('enter')[0], defmessage= "Hello, my name is " + session['user'])
 
 
 @app.route("/matches/", methods=["POST","GET"])

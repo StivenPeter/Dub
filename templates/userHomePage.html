@@ -68,45 +68,43 @@
 
 
 {% block body %}
-
 <div class="card" style="width: 98%; height: 50em;">
-	<div class = "large-4 columns">
-		<br>
-		<!--<img src="http://testdb.msmagazine.com/blog/wp-content/uploads/2012/08/Feminist-Ryan-Gosling.jpeg" alt="profile" shape="circle" style="width:200px;height:200px;"> -->
-		<img src="{{pfp}}" alt="profile" shape="circle" style="width:200px;height:200px;"> 
-		<!--MESSAGES-->
-		<br> <br> <br> <br> 
-		<form action="/messages/" method="POST">
-			<center>
-				<input type="submit" name="enter" class="button expanded" value="My Messages">
-			</center>
-		</form>
-
-
-
-	</div>
-
-	<div class = "large-4 columns">
+<div align="center">
 
 		<p class="marquee">
     	<span id="dtText"> Today is {{date}} </span>
 </p>
 
-
-		<!--MEMES-->
-
-
-
 	</div>
+<div class = "row">
+<div class = "large-12 columns" align= "center">
+		<br>
+		<img src="{{pfp}}" alt="profile" shape="circle" style="width:200px;height:200px;"> 
+</div>
+		
+</div>
 
-	<div class = "large-4 columns">
-		<br> <br>
+<div class = "row">
+		<!--MESSAGES-->
+		<div class= "large-6 columns">
+		<fieldset class="fieldset">
+		<legend>Your Matches and Messages</legend>
+				<form action="/matches/" method="POST">
+			<center>
+				<input type="submit" name="enter" class="button expanded" value="My Matches">
+			</center>
+		</form>
 
-
-
+		<form action="/messages/" method="POST">
+			<center>
+				<input type="submit" name="enter" class="button expanded" value="My Messages">
+			</center>
+		</form>
+	</fieldset>
+	</div>
+	<div class = "large-6 columns">
 		<fieldset class="fieldset">
   			<legend>Things to Do With Your Significant Otter</legend>
-
 		<!--EVENTS-->
 			<form action="/yelpEvents/" method="POST">
 				<center>
@@ -119,14 +117,7 @@
 				</center>
 			</form>
 		</fieldset>
-		<br> <br>
-		<!--MATCHES-->
-		<form action="/matches/" method="POST">
-			<center>
-				<input type="submit" name="enter" class="button expanded" value="My Matches">
-			</center>
-		</form>
-
+	</div>
 	</div>
 </div>
 

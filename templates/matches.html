@@ -27,7 +27,6 @@
 		border:#4BA3C3;
 	}
 	.button{
-		margin: 20px 10px 10px 10px;
 		background:#BA324F;
 	}
 	img {
@@ -36,7 +35,7 @@
 	.profile-card img {
     	width: 8rem;
     	display: block;
-    	margin: 0.5rem auto;
+    	margin: 0rem auto;
     	text-align: center;
     	border-radius: 50%;
     	box-shadow: 2px 2px 5px #888888; 
@@ -55,10 +54,11 @@
 	<div class= "card-section">
 	<div class = "card">
 	<h1 align="center"> {{matchInfo[person][0]}} </h1>
-	<div class  = "medium-3 columns">
+	<div class  = "large-3 columns">
 	<div class= "profile-card"> 
-		<img src= " {{ matchInfo[person][-1]}} ">
+		<img src= " {{ matchInfo[person][-1] }} ">
 	</div>
+
 	</div>
 	<div class = "medium-9 columns">
 	<div class = "row">
@@ -85,6 +85,18 @@
 	<span>Job:{{ matchInfo[person][8]}} </span>
 	</div>
 	</div>
+	</div>
+
+
+	<div class = "row" align="center">
+	<div class= "12-large columns">
+	<form action = "/makemessage/" method="GET">
+	<button type="submit" name="enter" class="button" value="{{person}}"> <h1>Message </h1></button>
+	</form>
+	</div>
+	</div>
+
+
 	</div>
 	</div>
 	</div>
