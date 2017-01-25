@@ -1,6 +1,6 @@
 Taksk Delegation:
-	Stiven Peter: User authentitication, Changing User Settings, Retrieving data from users table, formatting matches.html. 
-	Olivia Gallager: Login/Register Front-end, Form1 and Form2 front end, matchme algorithm, userHomePage front and back end. 
+	Stiven Peter: User authentification, Changing User Settings, Retrieving data from users table, formatting matches.html. 
+	Olivia Gallager: Login/Register Front-end, Authorization code, Form1 and Form2 front end, matchme algorithm, userHomePage front and back end, most of App.py
 	Shariar Kabir: Eventbrite/Yelp API functionality
 	Lorenz Vargas: User to User Messages functionality. 
 Front-End

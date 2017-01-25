@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 import urllib2, os
 import hashlib
 import time
-from utils import authorize, personalInfo, matchme, messageform
+from utils import authorize, personalInfo, matchme, messageform, eventbrite, yelp
 #from utils import users
 from werkzeug.utils import secure_filename
 
@@ -314,12 +314,21 @@ def matches():
 		matchInfo[person] = personalInfo.getCardInfo(person)
 	return render_template("matches.html", matchInfo = matchInfo)
 
-@app.route("/events/", methods=["POST"])
-def events():
+@app.route("/yelpEvents/", methods=["POST"])
+def yelpEvents():
 	return render_template("events.html")
 
 
-
+@app.route("/EBevents/", methods=["POST"])
+def EBevents():
+	## Pull interests and hobbies
+	interestsAndHobbies = personalInfo.getInterestList(session['user'])
+	interestsAndHobbies.extend(personalInfo.getHobbyList(session['user']))
+	eventList = []
+	##get related events
+	for item in interestsAndHobbies:
+		eventList.extend(eventbrite.getEvents(item))	
+	return render_template("events.html", eventList = eventList)
 
 
 if(__name__ == "__main__"):

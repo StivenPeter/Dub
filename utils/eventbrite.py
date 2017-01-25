@@ -2,7 +2,7 @@ import json
 import urllib
 import urllib2
 
-
+## returns a list of dictionaries
 def getEvents(keyword):
         keyword='&q='+keyword
         location='&location.address=new+york'
@@ -29,4 +29,4 @@ def getEvents(keyword):
 
 
 
-#getEvents('marathon')
+getEvents('marathon')
