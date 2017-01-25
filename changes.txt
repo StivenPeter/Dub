@@ -1,0 +1,17 @@
+Taksk Delegation:
+	Stiven Peter: User authentitication, Changing User Settings, Retrieving data from users table, formatting matches.html. 
+	Olivia Gallager: Login/Register Front-end, Form1 and Form2 front end, matchme algorithm, userHomePage front and back end. 
+	Shariar Kabir: Eventbrite/Yelp API functionality
+	Lorenz Vargas: User to User Messages functionality. 
+Front-End
+	-Survey.html replaced by form1, form2, and upload.html 
+	-Dashboard.html replaced by userHomePage.html
+Back-End: 
+	-match.py renames to matchme.py
+	-Messages.py split into messagedata.py and messageform.py
+	-PersonalInfo replaces Data.py functions, and handles survey responses
+	-Authorize.py only handles user authentification
+	-data.db moved to dta folder
+Database Schema
+	-users2 handles username,password
+	-users handles user info and preferences. 
