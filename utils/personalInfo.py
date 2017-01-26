@@ -76,10 +76,33 @@ def getInterestList(username):
         return data
 
 
+<legend>Some of My Hobbies Include...(<b> Pick Three </b>)</legend>
+                    <input id="checkbox89" type="checkbox" name="gaming" value="yes"><label for="checkbox89">Gaming</label>
+                    <input id="checkbox90" type="checkbox" name="anime" value="yes"><label for="checkbox90">Watching Anime</label>
+                    <input id="checkbox91" type="checkbox" name="comedy" value="yes"><label for="checkbox91">Watching Comedy T.V.</label> <br>
+                    <input id="checkbox92" type="checkbox" name="eating" value="yes"><label for="checkbox92">Eating</label>
+                    <input id="checkbox93" type="checkbox" name="bike" value="yes"><label for="checkbox93">Biking</label>
+                    <input id="checkbox94" type="checkbox" name="hike" value="yes"><label for="checkbox94">Hiking</label> <br>
+                    <input id="checkbox95" type="checkbox" name="walks" value="yes"><label for="checkbox95">Taking Walks</label>
+                    <input id="checkbox96" type="checkbox" name="hacking" value="yes"><label for="checkbox96">Hackathons</label>
+                    <input id="checkbox97" type="checkbox" name="music" value="yes"><label for="checkbox97">Listening to Music</label> <br>
+                    <input id="checkbox98" type="checkbox" name="instrument" value="yes"><label for="checkbox98">Playing an Instrument</label>
+                    <input id="checkbox99" type="checkbox" name="sleeping" value="yes"><label for="checkbox99">Sleeping</label>
+                    <input id="checkbox100" type="checkbox" name="reading" value="yes"><label for="checkbox100">Reading</label> <br>
+                    <input id="checkbox101" type="checkbox" name="sports" value="yes"><label for="checkbox101">Sports</label>
+                    <input id="checkbox102" type="checkbox" name="drama" value="yes"><label for="checkbox102">Watching Drama T.V.</label>
+                    <input id="checkbox103" type="checkbox" name="animals" value="yes"><label for="checkbox103">Playing with Animals</label> <br>
+                    <input id="checkbox104" type="checkbox" name="culinary" value="yes"><label for="checkbox104">Cooking/Baking</label>
+                    <input id="checkbox105" type="checkbox" name="knitting" value="yes"><label for="checkbox105">Knitting</label>
+                    <input id="checkbox106" type="checkbox" name="diy" value="yes"><label for="checkbox106">DIY</label> <br>
+                    <input id="checkbox107" type="checkbox" name="concerts" value="yes"><label for="checkbox107">Going to Concerts</label>
+
+
+
 def getHobbyList(username):
         userData=getData(username)
-        hobbies = ['anime', 'comedy', 'eating', 'bike', 'hike', 'walks', 'hacking', 'music', 'instrument', 'sleeping', 'reading', 'sports', 'drama', 'animals', 'culinary', 'knitting', 'diy', 'concerts']
-        hobbies2 = ['Watching Anime', 'Watching Comedy TV', 'Eating', 'Biking', 'Hiking', 'Taking Walks', 'Hacking', 'Listening to Music', 'Playing an Instrument', 'Sleeping', 'Reading', 'Playing Sports', 'Watching Drama T.V.', 'Playing with Animals', 'Cooking/Baking', 'Knitting', 'DIY', 'Going to Concerts']
+        hobbies = ['gaming','anime', 'comedy', 'eating', 'bike', 'hike', 'walks', 'hacking', 'music', 'instrument', 'sleeping', 'reading', 'sports', 'drama', 'animals', 'culinary', 'knitting', 'diy', 'concerts']
+        hobbies2 = ['Gaming', 'Watching Anime', 'Watching Comedy TV', 'Eating', 'Biking', 'Hiking', 'Taking Walks', 'Hacking', 'Listening to Music', 'Playing an Instrument', 'Sleeping', 'Reading', 'Playing Sports', 'Watching Drama T.V.', 'Playing with Animals', 'Cooking/Baking', 'Knitting', 'DIY', 'Going to Concerts']
         indexes = []
         data = []
         for x in range(13,16):
