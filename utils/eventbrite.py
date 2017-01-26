@@ -48,6 +48,6 @@ def iGotTheKeys():
 
 
 getEvents('marathon')
-=======
+
 #print getEvents('marathon')
->>>>>>> fdfc2a624c2713c0348a88f74e5ba397f430486e
+
