@@ -326,7 +326,19 @@ def yelpEvents():
 
 @app.route("/EBevents/", methods=["POST"])
 def EBevents():
-	eventList= eventbrite.getEvents('marathon')	
+	#get interests
+	interestsAndHobbies = []
+	eventList = []
+	interestsAndHobbies.extend(personalInfo.getInterestList(session['user']))
+	interestsAndHobbies.extend(personalInfo.getHobbiesForEvents(session['user']))
+	print interestsAndHobbies
+	for item in interestsAndHobbies:
+		a = eventbrite.getEvents(item)# a is a list of dictionaries
+		print "a: " + str(a) 
+		for dictionary in a:
+			if a not in eventList:
+				eventList.append(dictionary)
+	print eventList	
 	return render_template("events.html", eventList = eventList)
 
 

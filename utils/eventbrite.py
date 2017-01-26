@@ -18,8 +18,8 @@ def getEvents(keyword):
             eventdict['url']=events['url']
             eventdict['description']=events["description"]["text"]
             eventlist.append(eventdict)
-        print eventlist[0]['url']
-        print eventlist[0]['name']
+        #print eventlist[0]['url']
+        #print eventlist[0]['name']
         return eventlist
         
             
@@ -28,4 +28,4 @@ def getEvents(keyword):
 
 
 
-#getEvents('marathon')
+print getEvents('marathon')

@@ -32,6 +32,17 @@
 
 
 {% block body %}
-{{eventList}}
+
+
+{% for event in eventList %}
+<div class = "row">
+	<div class= "card-section">
+		<div class = "card">
+			<h1 align="center"> {{event['url']}} </h1>
+		</div>
+	</div>
+</div>
+
+{% endfor %}
 
 {% endblock %}

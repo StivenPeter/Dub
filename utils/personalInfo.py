@@ -73,8 +73,32 @@ def getInterestList(username):
     			data.append("Feminism")
     		if userData[x] == "memes":
     			data.append("Memes")
+        #print data
         return data
 
+# def getIntrestList(username):
+#         userData=getData(username)
+#         data=[]
+#         data.append(userData[1])
+#         data.append(userData[2])
+#         data.append(userData[3])
+#         return data
+
+# def getHobbyList(username):
+#         userData=getData(username)
+#         data=[]
+#         data.append(userData[13])
+#         data.append(userData[14])
+#         data.append(userData[15])
+#         return data
+
+def getHobbiesForEvents(username):
+    userData=getData(username)
+    li = []
+    li.append(userData[13])
+    li.append(userData[14])
+    li.append(userData[15])
+    return li
 
 def getHobbyList(username):
         userData=getData(username)
@@ -86,6 +110,7 @@ def getHobbyList(username):
             indexes.append(hobbies.index(userData[x]))
         for i in indexes:
             data.append(hobbies2[i])
+        #print data
         return data
 
 
