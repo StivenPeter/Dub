@@ -48,7 +48,6 @@ def getResult(location, food):
     data=data.json()
     places=[]
     for x in data['businesses']:
-        print x
         i=[]
         i.append(x['name'])
         i.append(x['location']['display_address'][0])
@@ -60,5 +59,5 @@ def getResult(location, food):
     return places
 
 
-print getResult('Brooklyn','sushi')
+#print getResult('Brooklyn','sushi')
 

@@ -306,7 +306,6 @@ def get_message():
 @app.route("/makemessage/", methods=["GET"])
 def makemessage():
 	p =  request.args
-	print p.getlist('enter')[0]
 	return render_template("messages.html", sendto = p.getlist('enter')[0], defmessage= "Hello, my name is " + session['user'])
 
 
@@ -343,11 +342,11 @@ def EBevents():
 	#get interests
 	interestsAndHobbies = []
 	eventList = []
+	zipp=personalInfo.getZip(session['user'])
 	interestsAndHobbies.extend(personalInfo.getInterestList(session['user']))
 	interestsAndHobbies.extend(personalInfo.getHobbiesForEvents(session['user']))
-	print interestsAndHobbies
 	for item in interestsAndHobbies:
-		a = eventbrite.getEvents(urllib.quote(item))# a is a list of dictionaries
+		a = eventbrite.getEvents(urllib.quote(item),zipp)# a is a list of dictionaries
 		for dictionary in a:
 			if dictionary not in eventList:
 				eventList.append(dictionary)

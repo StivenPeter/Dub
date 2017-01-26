@@ -1,21 +1,21 @@
 import json
 import urllib
 import urllib2
+import personalInfo
 ## returns a list of dictionaries
 
 
 
 
-def getEvents(keyword):
+def getEvents(keyword, zipp):
         keyz=iGotTheKeys()['event']
         keyword='&q='+keyword
-        location='&location.address=new+york'
+        location='&location.address='+zipp
         url = "https://www.eventbriteapi.com/v3/events/search/?token="+keyz+keyword+location
         response = urllib2.urlopen(url)
         eventdata = response.read()
         dic = json.loads(eventdata)
         dic=dic['events']
-        print dic
         eventdict = {}
         eventlist=[]
         for events in dic:
@@ -47,7 +47,7 @@ def iGotTheKeys():
 
 
 
-getEvents('marathon')
+#getEvents('marathon')
 
 #print getEvents('marathon')
 
