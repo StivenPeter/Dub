@@ -294,6 +294,47 @@ def changeSettings(username, interestList, bigthing, zipcode, gender, age, gendp
 	return True
 
 
+def getGenderRaw(username):
+    userData=getData(username)
+    return userData[6]
+
+
+def getReligionRaw(username):
+    userData=getData(username)
+    return userData[10]
+
+def getJobRaw(username):
+    userData=getData(username)
+    return userData[11]
+
+
+def getPoliticRaw(username):
+    
+    userData=getData(username)
+    return userData[16]
+
+
+def getBigRaw(username):
+    userData=getData(username)
+    return userData[4]
+
+
+def getInterestListRaw(username):
+    userData=getData(username)
+    data=[]
+    data.append(userData[1])
+    data.append(userData[2])
+    data.append(userData[3])
+    return data
+
+def getHobbyListRaw(username):
+    userData=getData(username)
+    data=[]
+    data.append(userData[13])
+    data.append(userData[14])
+    data.append(userData[15])
+    return data
+
 #getRouteForPfp('L')
 #print getIntrestList('billy123')
 #print getName("jb7")

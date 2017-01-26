@@ -260,21 +260,21 @@ def about():
 
 @app.route("/settings/")
 def settings():
-        print personalInfo.getData(session['user'])
         payload={}
-        payload['intrest']=personalInfo.getIntrestList(session['user'])
-        payload['hobby']=personalInfo.getHobbyList(session['user'])
-        payload['politic']=personalInfo.getPolitic(session['user'])
-        payload['big']=personalInfo.getBig(session['user'])
+        payload['intrest']=personalInfo.getInterestListRaw(session['user'])
+        payload['hobby']=personalInfo.getHobbyListRaw(session['user'])
+        payload['politic']=personalInfo.getPoliticRaw(session['user'])
+        payload['big']=personalInfo.getBigRaw(session['user'])
         payload['zip']=personalInfo.getZip(session['user'])
-        payload['gender']=personalInfo.getGender(session['user'])
-        payload['attract']=personalInfo.getIntrest(session['user'])
+        payload['gender']=personalInfo.getGenderRaw(session['user'])
+        payload['attract']=personalInfo.getInterest(session['user'])
         payload['age']=personalInfo.getAge(session['user'])
         payload['agedif']=personalInfo.getAgeDif(session['user'])
-        payload['religion']=personalInfo.getReligion(session['user'])
-        payload['job']=personalInfo.getJob(session['user'])
+        payload['religion']=personalInfo.getReligionRaw(session['user'])
+        payload['job']=personalInfo.getJobRaw(session['user'])
         payload['religionpartner']=personalInfo.getReligiousPartner(session['user'])
         payload['politicpartner']=personalInfo.getPoliticPartner(session['user'])
+        print payload
 	return render_template("settings.html", data=payload)
 
 
