@@ -6,10 +6,33 @@ import json
 from requests_oauth2 import OAuth2
 
 
-consumer_key = "7_EwDMS6kxqq1s1xryfX2Q"
-consumer_secret = "rt2PahWel9AuFUXH9YgZm0rriKk"
-token = "LZK4mRye4lC0tH1piE7niTkQiXKa_GD_"
-token_secret = "7fu_bhr4zcJ4Je4Cl487unVTsrg"
+def iGotTheKeys():
+    files = open('keys.txt','r')
+    keydata=files.readlines()
+    d={}
+    l=[]
+    for keys in keydata:
+        l.append(keys)
+    d['ConsumerK']=l[0]
+    d['ConsumerS']=l[1]
+    d['Token']=l[2]
+    d['TokenS']=l[3]
+    d['event']=l[4]
+    files.close()
+    return d
+
+
+kdict=iGotTheKeys()
+print kdict
+
+consumer_key = kdict['ConsumerK'].strip()
+
+consumer_secret = kdict['ConsumerS'].strip()
+token = kdict['Token'].strip()
+token_secret = kdict['TokenS'].strip()
+
+
+
 
 session = rauth.OAuth1Session(
     consumer_key = consumer_key
@@ -35,5 +58,8 @@ def getResult(location, food):
         i=[]
     return places
 
-#print getResult('Brooklyn','sushi')
+
+
+
+print getResult('Brooklyn','sushi')
 

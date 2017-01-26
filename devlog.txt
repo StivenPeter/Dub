@@ -90,3 +90,4 @@ P0rkins -- 2017-01-25- 20:30
 
 skabir8 -- 2017-01-25 20:40
 	Loaded events with placeholder
+	made keys fxn
