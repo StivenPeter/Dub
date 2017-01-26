@@ -218,9 +218,7 @@ def userinfo():
 	interestList=newDict['interests']
 	hobbies = newDict['hobbies']
 	if len(interestList) != 3 or len(hobbies) != 3:
-		if session['message'] == '':
-			session['message'] = "Please fill in all required boxes!"
-		return redirect(url_for("form2"))
+		return redirect(url_for("form2", message = "Please fill in all required boxes!"))
 	personalInfo.addEntry(username, interestList, newDict['bigthing'], newDict['zip'], newDict['gender'], newDict['age'], newDict['gendpref'], newDict['religionpref'], newDict['myreligion'], newDict['job'], newDict['politicalpref'], hobbies, newDict['mypolitics'], newDict['agediff'])
 	return render_template("upload.html")
 	#return redirect(url_for("userHomePage"))
