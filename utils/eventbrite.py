@@ -18,13 +18,11 @@ def getEvents(keyword):
         eventdict = {}
         eventlist=[]
         for events in dic:
-            eventdict['name']=events['name']['text']
+            eventdict['name']=events['name']['text'] 
             eventdict['url']=events['url']
-            #eventdict['description']=events["description"]["text"]
+            eventdict['description']=events["description"]["text"]
             eventlist.append(eventdict)
-        print eventlist[0]['url']
-        print eventlist[0]['name']
-        print eventlist
+            eventdict={}
         return eventlist
         
             
@@ -49,4 +47,4 @@ def iGotTheKeys():
     return d
 
 
-print getEvents('marathon')
+#print getEvents('marathon')
