@@ -79,4 +79,11 @@ stivenP — 2017-01-23 22:00
 	-Debugged Settings
 
 P0rkins -- 2017-01-24 22:30
+	- messaging system close to completion
+	- created functions that allow user to send and get messages
 	- finished messaging system (backend)
+	- rudimentary front end work
+
+P0rkins -- 2017-01-25- 20:30
+	- created test accounts
+	- debugging
