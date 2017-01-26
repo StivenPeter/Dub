@@ -1,4 +1,4 @@
-stivenP -- 2017-01-09 18:00
+﻿stivenP -- 2017-01-09 18:00
       Added basic paths to app.py 
       Added functions necessary to upload pics in app.py
 
@@ -87,3 +87,6 @@ P0rkins -- 2017-01-24 22:30
 P0rkins -- 2017-01-25- 20:30
 	- created test accounts
 	- debugging
+
+skabir8 -- 2017-01-25 20:40
+	Loaded events with placeholder

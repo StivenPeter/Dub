@@ -326,13 +326,7 @@ def yelpEvents():
 
 @app.route("/EBevents/", methods=["POST"])
 def EBevents():
-	## Pull interests and hobbies
-	interestsAndHobbies = personalInfo.getInterestList(session['user'])
-	interestsAndHobbies.extend(personalInfo.getHobbyList(session['user']))
-	eventList = []
-	##get related events
-	for item in interestsAndHobbies:
-		eventList.extend(eventbrite.getEvents(item))	
+	eventList= eventbrite.getEvents('marathon')	
 	return render_template("events.html", eventList = eventList)
 
 
