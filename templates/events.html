@@ -28,6 +28,9 @@
 	img {
 		border-radius: 100px;
 	}
+	h2 {
+		font-size: 15px;
+	}
 {% endblock %}
 
 
@@ -38,7 +41,8 @@
 <div class = "row">
 	<div class= "card-section">
 		<div class = "card">
-			<h1 align="center"> {{event['url']}} </h1>
+			<h1 align="center"> {{event['name']}} </h1>
+			<h2 align="center"> <a href={{event['url']}}> Check it Out! </a> </h2>
 		</div>
 	</div>
 </div>

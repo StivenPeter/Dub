@@ -15,6 +15,7 @@ def getEvents(keyword):
         eventdata = response.read()
         dic = json.loads(eventdata)
         dic=dic['events']
+        print dic
         eventdict = {}
         eventlist=[]
         for events in dic:
@@ -22,16 +23,12 @@ def getEvents(keyword):
             eventdict['url']=events['url']
             #eventdict['description']=events["description"]["text"]
             eventlist.append(eventdict)
-        print eventlist[0]['url']
-        print eventlist[0]['name']
-        print eventlist
+        #print eventlist[0]['url']
+        #print eventlist[0]['name']
+        #print eventlist
         return eventlist
         
             
-
-        
-
-
 
 def iGotTheKeys():
     files = open('keys.txt','r')
@@ -49,4 +46,4 @@ def iGotTheKeys():
     return d
 
 
-print getEvents('marathon')
+getEvents('marathon')

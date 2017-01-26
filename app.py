@@ -321,7 +321,20 @@ def matches():
 
 @app.route("/yelpEvents/", methods=["POST"])
 def yelpEvents():
-	return render_template("events.html")
+	#def getResult(location, food):
+	zipcode = personalInfo.getZip(session['user'])
+	foods = ['soul', 'indian', 'sushi', 'italian', 'pizza', 'burger']
+	eventList = []
+	for food in foods:
+		a = yelp.getResult(zipcode, food)#list of lists
+		for list1 in a:
+			if list1 not in eventList:
+				d = {}
+				d['name'] = list1[0]
+				d['url'] = list1[4]
+				d['address'] = list1[1]
+				eventList.append(d)
+	return render_template("events.html", eventList = eventList )
 
 
 @app.route("/EBevents/", methods=["POST"])
@@ -331,12 +344,10 @@ def EBevents():
 	eventList = []
 	interestsAndHobbies.extend(personalInfo.getInterestList(session['user']))
 	interestsAndHobbies.extend(personalInfo.getHobbiesForEvents(session['user']))
-	print interestsAndHobbies
 	for item in interestsAndHobbies:
 		a = eventbrite.getEvents(item)# a is a list of dictionaries
-		print "a: " + str(a) 
 		for dictionary in a:
-			if a not in eventList:
+			if dictionary not in eventList:
 				eventList.append(dictionary)
 	print eventList	
 	return render_template("events.html", eventList = eventList)

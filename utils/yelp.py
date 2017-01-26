@@ -23,7 +23,7 @@ def iGotTheKeys():
 
 
 kdict=iGotTheKeys()
-print kdict
+#print kdict
 
 consumer_key = kdict['ConsumerK'].strip()
 
@@ -48,17 +48,16 @@ def getResult(location, food):
     data=data.json()
     places=[]
     for x in data['businesses']:
+        print x
         i=[]
         i.append(x['name'])
         i.append(x['location']['display_address'][0])
-        i.append(x['display_phone'])
         i.append(x['rating'])
         i.append(x['image_url'])
+        i.append(x['mobile_url'])
         places.append(i)
         i=[]
     return places
-
-
 
 
 print getResult('Brooklyn','sushi')
