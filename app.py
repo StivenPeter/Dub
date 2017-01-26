@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import urllib2, os
+import urllib
 import hashlib
 import time
 import requests_oauth2
@@ -344,12 +345,12 @@ def EBevents():
 	eventList = []
 	interestsAndHobbies.extend(personalInfo.getInterestList(session['user']))
 	interestsAndHobbies.extend(personalInfo.getHobbiesForEvents(session['user']))
+	print interestsAndHobbies
 	for item in interestsAndHobbies:
-		a = eventbrite.getEvents(item)# a is a list of dictionaries
+		a = eventbrite.getEvents(urllib.quote(item))# a is a list of dictionaries
 		for dictionary in a:
 			if dictionary not in eventList:
 				eventList.append(dictionary)
-	print eventList	
 	return render_template("events.html", eventList = eventList)
 
 
